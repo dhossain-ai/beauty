@@ -24,8 +24,16 @@ Frontend-only premium beauty salon / beauty studio website with hardcoded conten
 - AI_RULES.md
 
 ## Current Build State
-Phase 2 completed.
-The project now includes deep dynamic-style detail pages for services and specialists, a comprehensive pricing hub with memberships, and a dedicated, categorized FAQ page.
+Phase 3 completed.
+The project now includes rich visual content areas with the Masonry-style Gallery and the editorial Journal system, completing the full frontend mock architecture for the studio.
+
+## Completed In Phase 3
+- Built Gallery Index (`/gallery`) using an elegant masonry-style grid to spotlight client results and studio aesthetics.
+- Built Journal Archive (`/journal`) featuring an editorial layout and a prominent featured article section.
+- Built Journal Detail pages (`/journal/[slug]`) with extensive rich text support (paragraphs, blockquotes, lists, multi-level headings) for slow-beauty philosophy storytelling.
+- Expanded `blogPosts` and `galleryItems` data for realistic, portfolio-ready mock volume.
+- Upgraded TypeScript models to support flexible `contentBlocks` for static blog rendering.
+- Integrated `/gallery` and `/journal` loops gracefully into global navigation.
 
 ## Completed In Phase 2
 - Built Service Detail pages (`/services/[slug]`) with process timelines, detailed benefits, and related specialists.
