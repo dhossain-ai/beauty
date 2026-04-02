@@ -61,7 +61,7 @@ export function Homepage() {
                 {trustMetrics.map((metric) => (
                   <div
                     key={metric.label}
-                    className="surface-panel rounded-[1.5rem] px-5 py-4"
+                    className="surface-panel rounded-[1.5rem] px-5 py-4 transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-1 hover:shadow-[var(--shadow-card-hover)]"
                   >
                     <p className="font-serif text-3xl leading-none text-ink-strong">
                       {metric.value}
@@ -158,7 +158,7 @@ export function Homepage() {
             <SectionHeading
               eyebrow="Signature services"
               title="A service system built for calm, modern beauty results."
-              description="Phase 1 upgrades this into an interactive showcase. Swipe through our signature offerings, ready to expand into full service pages."
+              description="Explore the treatments clients return to for luminous skin, softly structured brows, and low-maintenance polish that still feels elevated."
               action={
                 <Button href="/services" variant="secondary">
                   Explore all services
@@ -182,7 +182,7 @@ export function Homepage() {
               <SectionHeading
                 eyebrow="About the philosophy"
                 title="Soft luxury means tailored beauty with restraint, rhythm, and warmth."
-                description="The site system is intentionally editorial but approachable: layered surfaces, warm neutrals, elegant serif headings, and touch-friendly layouts that stay credible on smaller screens."
+                description="The studio language stays warm and editorial without slipping into trend noise: layered neutrals, touch-friendly surfaces, and refined typography that reads clearly on every screen."
               />
 
               <div className="grid gap-3">
@@ -246,7 +246,7 @@ export function Homepage() {
             <SectionHeading
               eyebrow="Studio specialists"
               title="Specialists presented with enough polish to feel premium from day one."
-              description="The card system is ready for richer bios, detail pages, and swipe-friendly mobile refinement in later phases."
+              description="Meet the resident artists behind the studio rituals, each introduced with clear specialties, calm authority, and an approachable luxury tone."
             />
 
             <div className="grid gap-6 lg:grid-cols-3">
@@ -265,7 +265,7 @@ export function Homepage() {
               <SectionHeading
                 eyebrow="Subtle refinement"
                 title="Results that look rested, not reinvented."
-                description="We document client journeys to show natural-looking healing and balanced enhancements. Phase 1 provides this interactive component for real photography later."
+                description="The results language stays soft and believable, focusing on hydrated texture, balanced definition, and the kind of polish that still feels recognisably yours."
               />
               <div className="surface-card rounded-[2rem] p-5">
                 <p className="text-sm font-semibold tracking-wide text-ink">Treatment Focus</p>
@@ -302,7 +302,7 @@ export function Homepage() {
             <SectionHeading
               eyebrow="Gallery preview"
               title="An image-led results section that already has editorial rhythm."
-              description="This placeholder gallery uses a flexible mosaic layout so real before-and-after or studio photography can be introduced later without restructuring the page."
+              description="A flexible mosaic rhythm keeps studio details, result imagery, and treatment mood shots feeling curated rather than template-driven."
             />
 
             <div className="grid gap-4 md:grid-cols-12">
@@ -334,7 +334,7 @@ export function Homepage() {
             <SectionHeading
               eyebrow="Client words"
               title="Testimonials are styled as premium proof, not filler."
-              description="Phase 1 upgrades this into a smooth carousel layout, offering editorial social proof without cluttering the page rhythm."
+              description="Social proof sits inside the same calm visual system as the rest of the site, so the trust layer feels elegant instead of promotional."
             />
 
             <Carousel slideClassName="w-[90vw] sm:w-[26rem] lg:w-[28rem]">
@@ -355,7 +355,7 @@ export function Homepage() {
             <SectionHeading
               eyebrow="Beauty journal"
               title="Editorial blog cards give the brand a more complete, sellable feel."
-              description="The content shape is already separated from presentation so the journal can scale into archive and article pages without reworking the base component patterns."
+              description="The journal extends the brand beyond treatments, giving the studio a thoughtful editorial voice and a stronger portfolio-ready finish."
             />
 
             <div className="grid gap-6 lg:grid-cols-3">
@@ -370,8 +370,12 @@ export function Homepage() {
       <CtaBlock
         id="contact"
         eyebrow="Final call to action"
-        title="The foundation is ready for deeper page builds, richer imagery, and polished booking-touchpoint flows."
-        description="This homepage already establishes the shell, design tokens, reusable components, and premium responsive behavior the next phase can build on."
+        title="Ready for a calm, tailored studio visit?"
+        description="Book a consultation, explore the treatment menu, or browse the journal for the rituals and guidance behind the Maison de Lueur experience."
+        primaryHref="/services"
+        primaryLabel="Browse treatments"
+        secondaryHref="/contact"
+        secondaryLabel="Book a consultation"
       />
     </>
   );

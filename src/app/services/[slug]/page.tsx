@@ -11,34 +11,46 @@ import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionHeading } from "@/components/ui/section-heading";
 
 export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+  return services.map((service) => ({ slug: service.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const service = services.find((s) => s.slug === params.slug);
-  if (!service) return { title: "Not Found" };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const service = services.find((item) => item.slug === slug);
+
+  if (!service) {
+    return { title: "Not Found" };
+  }
+
   return {
     title: `${service.title} | Maison de Lueur`,
     description: service.excerpt,
   };
 }
 
-export default function ServiceDetailPage({
+export default async function ServiceDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const service = services.find((s) => s.slug === params.slug);
+  const { slug } = await params;
+  const service = services.find((item) => item.slug === slug);
 
   if (!service) {
     notFound();
   }
 
   const relatedSpecialists = service.recommendedSpecialists
-    ? specialists.filter((s) => service.recommendedSpecialists!.includes(s.slug))
+    ? specialists.filter((item) => service.recommendedSpecialists?.includes(item.slug))
     : [];
 
-  const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const otherServices = services
+    .filter((item) => item.slug !== service.slug)
+    .slice(0, 3);
 
   return (
     <>
@@ -53,23 +65,21 @@ export default function ServiceDetailPage({
               <p className="max-w-xl text-lg leading-8 text-muted sm:text-xl">
                 {service.excerpt}
               </p>
-              
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                 <Button href="/contact" size="lg">Request Booking</Button>
-                 <div className="ml-0 mt-4 flex items-center gap-4 text-sm font-semibold text-ink sm:ml-4 sm:mt-0">
-                    <span className="flex items-center gap-2">
-                       <svg className="h-4 w-4 text-accent-strong" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                       </svg>
-                       {service.duration}
-                    </span>
-                    <span className="flex items-center gap-2">
-                       <svg className="h-4 w-4 text-accent-strong" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                       </svg>
-                       {service.priceFrom}
-                    </span>
-                 </div>
+
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <Button href="/contact" size="lg">
+                  Request Booking
+                </Button>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="surface-panel rounded-full px-4 py-3 text-sm font-semibold text-ink">
+                    <span className="text-muted">Duration</span>
+                    <span className="ml-2 text-ink-strong">{service.duration}</span>
+                  </div>
+                  <div className="surface-panel rounded-full px-4 py-3 text-sm font-semibold text-ink">
+                    <span className="text-muted">Investment</span>
+                    <span className="ml-2 text-ink-strong">{service.priceFrom}</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -77,7 +87,8 @@ export default function ServiceDetailPage({
               <MediaFrame
                 aspect="portrait"
                 title={service.title}
-                subtitle="Signature Ritual"
+                subtitle="Signature ritual"
+                label="Treatment portrait"
                 tone={service.imageTone}
                 className="h-full w-full"
               />
@@ -88,100 +99,129 @@ export default function ServiceDetailPage({
 
       <section className="section-space pt-0">
         <Container>
-           <div className="grid gap-12 lg:grid-cols-12">
-              <div className="lg:col-span-8 lg:pr-10">
-                 <h2 className="font-serif text-3xl text-ink-strong sm:text-4xl">Treatment Overview</h2>
-                 <p className="mt-6 text-lg leading-8 text-muted">{service.overview || service.excerpt}</p>
-                 
-                 {service.benefits && service.benefits.length > 0 && (
-                   <div className="mt-10">
-                     <h3 className="font-serif text-2xl text-ink-strong">Key Benefits</h3>
-                     <ul className="mt-6 flex flex-col gap-4">
-                        {service.benefits.map((benefit, i) => (
-                           <li key={i} className="flex items-start gap-4 rounded-2xl bg-shell-soft p-4 text-sm leading-6 text-ink">
-                             <span className="mt-1 flex h-2 w-2 shrink-0 rounded-full bg-accent-strong" />
-                             {benefit}
-                           </li>
-                        ))}
-                     </ul>
-                   </div>
-                 )}
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-8 lg:pr-6">
+              <h2 className="font-serif text-3xl text-ink-strong sm:text-4xl">
+                Treatment Overview
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-muted">
+                {service.overview || service.excerpt}
+              </p>
+
+              {service.benefits && service.benefits.length > 0 ? (
+                <div className="mt-10">
+                  <h3 className="font-serif text-2xl text-ink-strong">Key Benefits</h3>
+                  <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+                    {service.benefits.map((benefit) => (
+                      <li
+                        key={benefit}
+                        className="surface-card flex items-start gap-4 rounded-[1.6rem] p-4 text-sm leading-6 text-ink"
+                      >
+                        <span className="mt-1 flex h-2 w-2 shrink-0 rounded-full bg-accent-strong" />
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+            </div>
+
+            <div className="lg:col-span-4">
+              <div className="surface-panel sticky top-28 rounded-[2.5rem] p-6 sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
+                  The Promise
+                </p>
+                <p className="mt-4 font-serif text-2xl leading-tight text-ink-strong">
+                  {service.highlight}
+                </p>
+                <hr className="my-8 border-border/70" />
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
+                  Recommended Frequency
+                </p>
+                <p className="mt-2 text-sm leading-7 text-muted">
+                  Every 4 to 6 weeks depending on goals, barrier condition, and the
+                  level of corrective work in your plan.
+                </p>
               </div>
-              
-              <div className="lg:col-span-4">
-                 <div className="sticky top-32 rounded-[2.5rem] bg-shell-soft p-8">
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">The Promise</p>
-                    <p className="mt-4 font-serif text-2xl leading-tight text-ink-strong">
-                      {service.highlight}
-                    </p>
-                    <hr className="my-8 border-border/70" />
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">Recommended Frequency</p>
-                    <p className="mt-2 text-sm text-ink text-muted">Every 4 to 6 weeks depending on goals.</p>
-                 </div>
-              </div>
-           </div>
+            </div>
+          </div>
         </Container>
       </section>
 
-      {service.process && service.process.length > 0 && (
-         <section className="section-space bg-shell-soft">
-            <Container>
-               <SectionHeading 
-                 eyebrow="The Protocol"
-                 title="Step-by-step refinement."
-                 description="Every phase of this treatment is purposefully designed to build upon the last, maximizing both efficacy and relaxation."
-               />
-               
-               <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                 {service.process.map((step, idx) => (
-                    <div key={idx} className="group relative rounded-[2.5rem] bg-white p-8 shadow-[0_10px_30px_rgba(69,54,48,0.04)] transition-all hover:shadow-md">
-                       <span className="absolute -top-4 -left-4 flex h-12 w-12 items-center justify-center rounded-full bg-ink font-serif text-xl text-white shadow-lg">
-                          {idx + 1}
-                       </span>
-                       <h4 className="mt-2 font-serif text-2xl text-ink-strong">{step.title}</h4>
-                       <p className="mt-4 text-sm leading-7 text-muted">{step.description}</p>
-                    </div>
-                 ))}
-               </div>
-            </Container>
-         </section>
-      )}
-
-      {relatedSpecialists.length > 0 && (
-        <section className="section-space">
+      {service.process && service.process.length > 0 ? (
+        <section className="section-space bg-shell-soft/70">
           <Container>
-             <SectionHeading 
-               eyebrow="Expert matching"
-               title="Certified Specialists"
-               description="These studio resident artists have completed advanced certification in this exact protocol."
-             />
-             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-               {relatedSpecialists.map((specialist) => (
-                 <SpecialistCard key={specialist.slug} specialist={specialist} />
-               ))}
-             </div>
+            <SectionHeading
+              eyebrow="The Protocol"
+              title="Step-by-step refinement."
+              description="Every phase of this treatment is purposefully designed to build upon the last, maximizing both efficacy and relaxation."
+            />
+
+            <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {service.process.map((step, index) => (
+                <div
+                  key={step.title}
+                  className="surface-card group relative rounded-[2.2rem] p-8 transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-border-strong/70 hover:shadow-[var(--shadow-card-hover)]"
+                >
+                  <span className="absolute -left-4 -top-4 flex h-12 w-12 items-center justify-center rounded-full bg-ink font-serif text-xl text-white shadow-lg">
+                    {index + 1}
+                  </span>
+                  <h4 className="mt-2 font-serif text-2xl text-ink-strong">
+                    {step.title}
+                  </h4>
+                  <p className="mt-4 text-sm leading-7 text-muted">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </Container>
         </section>
-      )}
-      
-      {otherServices.length > 0 && (
-        <section className="section-space pt-0">
-           <Container>
-             <h3 className="mb-8 font-serif text-2xl text-ink-strong">Explore More Services</h3>
-             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-               {otherServices.map((s) => (
-                  <ServiceCard key={s.slug} service={s} />
-               ))}
-             </div>
-           </Container>
+      ) : null}
+
+      {relatedSpecialists.length > 0 ? (
+        <section className="section-space">
+          <Container>
+            <SectionHeading
+              eyebrow="Expert matching"
+              title="Certified Specialists"
+              description="These studio resident artists have completed advanced certification in this exact protocol."
+            />
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedSpecialists.map((specialist) => (
+                <SpecialistCard key={specialist.slug} specialist={specialist} />
+              ))}
+            </div>
+          </Container>
         </section>
-      )}
+      ) : null}
+
+      {otherServices.length > 0 ? (
+        <section className="section-space pt-0">
+          <Container>
+            <SectionHeading
+              eyebrow="Continue exploring"
+              title="More rituals in the studio menu."
+              description="If you are building a longer-term treatment cadence, these complementary services are often paired alongside this protocol."
+            />
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {otherServices.map((item) => (
+                <ServiceCard key={item.slug} service={item} />
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : null}
 
       <CtaBlock
         id="book"
         eyebrow="Consultation"
         title="Begin your journey."
         description={`Secure your appointment for the ${service.title} and experience the difference of unhurried, custom-tailored care.`}
+        primaryHref="/contact"
+        primaryLabel="Request appointment"
+        secondaryHref="/pricing"
+        secondaryLabel="View pricing"
       />
     </>
   );
