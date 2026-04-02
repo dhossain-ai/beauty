@@ -64,3 +64,9 @@ Phase 1: Added a `ComparisonSlider` component for Before/After treatment visual 
 
 ### D18
 Phase 2: Combined FAQ with the Pricing Page structure instead of creating a standalone sparse FAQ page, ensuring that crucial commercial friction points (investment and policy questions) are handled gracefully within a single premium layout.
+
+### D19
+Phase 2: Added a dedicated, categorized FAQ page (`/faq`) to satisfy user intent and SEO needs, while maintaining the integrated FAQ snippets on the Pricing page to ensure friction reduction at the point of decision.
+
+### D20
+Phase 2: Introduced "Studio Memberships" to the pricing architecture to elevate the business model's perceived value and emphasize long-term client care over one-off transactions, in line with the "Soft Luxury" philosophy.

@@ -25,15 +25,15 @@ Frontend-only premium beauty salon / beauty studio website with hardcoded conten
 
 ## Current Build State
 Phase 2 completed.
-The project now includes deep dynamic-style detail pages for services and specialists, plus a comprehensive pricing/FAQ hub.
+The project now includes deep dynamic-style detail pages for services and specialists, a comprehensive pricing hub with memberships, and a dedicated, categorized FAQ page.
 
 ## Completed In Phase 2
-- Built Service Detail pages (`/services/[slug]`) with process timelines and related specialists
-- Built Specialist Profile pages (`/specialists/[slug]`) with bios, work previews, and signature services
-- Built immersive Pricing Page (`/pricing`) that integrates FAQs contextually
-- Expanded hardcoded data structures significantly for `services`, `specialists`, `pricing`, and `faq`
-- Expanded typescript interfaces in `types.ts`
-- Wired service cards and specialist cards to their detailed profiles
+- Built Service Detail pages (`/services/[slug]`) with process timelines, detailed benefits, and related specialists.
+- Built Specialist Profile pages (`/specialists/[slug]`) with personal bios, experience highlights, and portfolio previews.
+- Built refined Pricing Page (`/pricing`) that includes a new "Memberships & Ritual Packages" section for improved commercial depth.
+- Created dedicated FAQ Page (`/faq`) with category-based layout and client care focus.
+- Expanded hardcoded data structures significantly for `services`, `specialists`, `pricing`, and `faq`.
+- Wired service cards and specialist cards to their detailed profiles across the site.
 
 ## Completed In Phase 1
 - Integrated `embla-carousel-react` for premium sliders
