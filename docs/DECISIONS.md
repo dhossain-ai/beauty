@@ -70,3 +70,12 @@ Phase 2: Added a dedicated, categorized FAQ page (`/faq`) to satisfy user intent
 
 ### D20
 Phase 2: Introduced "Studio Memberships" to the pricing architecture to elevate the business model's perceived value and emphasize long-term client care over one-off transactions, in line with the "Soft Luxury" philosophy.
+
+### D21
+Phase 4: Standardized archive and utility page intros into a shared responsive pattern so the site feels more cohesive and editorial across homepage-adjacent pages without adding unnecessary new templates.
+
+### D22
+Phase 4: Replaced cross-page CTA anchors with route-safe links (`/services`, `/contact`, etc.) as the default pattern, preventing broken inner-page actions while keeping the homepage section anchors where they are explicitly needed.
+
+### D23
+Phase 4: Implemented the Journal reading experience with a custom editorial text flow in the existing global stylesheet instead of introducing an extra typography dependency, keeping scope tight while ensuring article pages still feel premium.

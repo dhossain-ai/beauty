@@ -1,39 +1,36 @@
 # NEXT_PHASE
 
-## Phase 3 — Rich Visual Content and Editorial Polish
+## Phase 5 — Portfolio Packaging and Frontend Hardening
 
 ## Goal
-Build the final core content areas focused on rich media: the Gallery Index, the Journal Archive, and the Journal Detail pages. This completes the full marketing funnel of the studio concept.
+Finalize the studio concept as a stronger portfolio piece by hardening presentation details, accessibility, and frontend readiness without expanding into backend scope.
 
 ## Scope
 Continue using hardcoded data.
-Build visually engaging layout structures for images and editorial text.
+Stay frontend-only and keep the page count stable.
 
 ## Tasks
-1. Build Gallery Index
-   - `app/gallery/page.tsx`
-   - explore a layout system (masonry, elegant grid) that can be filtered loosely by service type if needed
-   - implement high-end image modals or simple full-screen focus states
+1. Accessibility and semantics pass
+   - audit landmarks, heading order, labels, and keyboard affordances
+   - improve reduced-motion handling where needed
 
-2. Build Journal Archive
-   - `app/journal/page.tsx`
-   - grid of `BlogCard` components 
-   - feature area for the newest or most important post
+2. Metadata and portfolio readiness
+   - refine page metadata, favicon/app identity, and social preview readiness
+   - ensure the project presents cleanly as a sellable frontend concept
 
-3. Build Journal Detail layout
-   - `app/journal/[slug]/page.tsx`
-   - elegant editorial reading experience
-   - support for text, blockquotes, and embedded imagery
-   - focus on large typography and whitespace
+3. Final frontend hardening
+   - review minor visual inconsistencies that remain after Phase 4
+   - verify responsive behavior once more against the final polished layouts
+   - prepare placeholder media and content structure for easy future photography replacement
 
 ## Acceptance Criteria
-- Gallery visually proves the studio's high quality
-- Journal pages feel like a premium lifestyle magazine, not a standard blog
-- Layout gracefully degrades on mobile devices
-- Full project structure is finally connected and navigable
+- The site feels portfolio-finished, not just feature-complete
+- Accessibility basics are clearly respected across the marketing experience
+- Metadata and presentation details support a polished handoff or showcase
+- No backend or CMS scope is introduced
 
 ## Do Not Do
 - no CMS integration
 - no backend wiring
-- stay within the existing token system
-
+- no auth, admin, or booking engine work
+- stay within the existing token and component system

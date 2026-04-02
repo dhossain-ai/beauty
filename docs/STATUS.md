@@ -24,8 +24,17 @@ Frontend-only premium beauty salon / beauty studio website with hardcoded conten
 - AI_RULES.md
 
 ## Current Build State
-Phase 3 completed.
-The project now includes rich visual content areas with the Masonry-style Gallery and the editorial Journal system, completing the full frontend mock architecture for the studio.
+Phase 4 completed.
+The project now feels cohesive across homepage, archive pages, detail pages, and utility pages, with a stronger responsive system and a more presentation-ready premium finish.
+
+## Completed In Phase 4
+- Ran a full responsive cleanup across the site, refining spacing, stacking, and card rhythm for phone, tablet, and desktop.
+- Standardized page intros so archive and utility pages share a calmer, more editorial heading rhythm.
+- Polished shared UI behavior across the header, footer, CTA blocks, buttons, media frames, cards, and carousel controls.
+- Reworked the Gallery and Journal archive layouts for stronger consistency, cleaner mobile behavior, and better premium pacing.
+- Upgraded Journal Detail pages with a custom editorial text system instead of relying on absent prose utilities.
+- Refined Service Detail and Specialist Detail pages for clearer information hierarchy, softer luxury language, and more consistent supporting sections.
+- Replaced stale phase-era placeholder copy and fixed cross-page CTA links so inner pages no longer point to missing homepage anchors.
 
 ## Completed In Phase 3
 - Built Gallery Index (`/gallery`) using an elegant masonry-style grid to spotlight client results and studio aesthetics.
@@ -70,8 +79,9 @@ The project now includes rich visual content areas with the Masonry-style Galler
 1. Foundation and design system (Done)
 2. Homepage and core pages (Done)
 3. Detail pages (Done)
-4. Rich content pages
-5. Polish and portfolio cleanup
+4. Rich content pages (Done)
+5. Polish and portfolio cleanup (Done)
+6. Portfolio packaging and frontend hardening
 
 ## Planned Main Pages
 - Home (Done)
@@ -79,16 +89,16 @@ The project now includes rich visual content areas with the Masonry-style Galler
 - Service Detail (Done)
 - Specialists (Done)
 - Specialist Detail (Done)
-- Gallery
-- Blog
-- Blog Detail
+- Gallery (Done)
+- Blog / Journal (Done)
+- Blog Detail / Journal Detail (Done)
 - About (Done)
 - Pricing (Done)
 - FAQ (Done - merged into Pricing for better UX)
 - Contact / Booking (Done)
 
 ## Immediate Next Goal
-Start Phase 3: Build rich content pages (Gallery Index and filtering, Blog Archive, and Blog Post Detail) to complete the website ecosystem.
+Start Phase 5: package the project for portfolio presentation and frontend hardening with accessibility checks, metadata polish, and final asset-readiness improvements.
 
 ## Open Creative Direction
 Use soft luxury, not dark glam, not fashion-editorial-first, not medical beauty-tech.
