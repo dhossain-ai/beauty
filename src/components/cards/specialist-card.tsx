@@ -1,5 +1,6 @@
 import type { Specialist } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { MediaFrame } from "@/components/ui/media-frame";
 
 interface SpecialistCardProps {
@@ -33,6 +34,11 @@ export function SpecialistCard({ specialist }: SpecialistCardProps) {
               {specialty}
             </Badge>
           ))}
+        </div>
+        <div className="mt-4 border-t border-border/70 pt-5">
+           <Button href={`/specialists/${specialist.slug}`} size="md" variant="secondary" fullWidth>
+             View Profile
+           </Button>
         </div>
       </div>
     </article>

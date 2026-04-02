@@ -16,13 +16,15 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionHeading } from "@/components/ui/section-heading";
-
 const galleryLayout = [
   "md:col-span-7",
   "md:col-span-5",
   "md:col-span-4",
   "md:col-span-8",
 ];
+
+import { Carousel } from "@/components/ui/carousel";
+import { ComparisonSlider } from "@/components/ui/comparison-slider";
 
 export function Homepage() {
   return (
@@ -150,25 +152,25 @@ export function Homepage() {
         </Container>
       </section>
 
-      <section id="services" className="section-space">
+      <section id="services" className="section-space overflow-hidden">
         <Container>
           <div className="space-y-10">
             <SectionHeading
               eyebrow="Signature services"
               title="A service system built for calm, modern beauty results."
-              description="Phase 0 focuses on strong reusable cards, premium spacing, and content structure that can later expand into full service pages and detailed booking flows."
+              description="Phase 1 upgrades this into an interactive showcase. Swipe through our signature offerings, ready to expand into full service pages."
               action={
-                <Button href="#contact" variant="secondary">
-                  Ask about availability
+                <Button href="/services" variant="secondary">
+                  Explore all services
                 </Button>
               }
             />
 
-            <div className="grid gap-6 lg:grid-cols-3">
-              {services.slice(0, 3).map((service) => (
+            <Carousel slideClassName="w-[85vw] sm:w-[22rem] lg:w-[24rem]">
+              {services.map((service) => (
                 <ServiceCard key={service.slug} service={service} />
               ))}
-            </div>
+            </Carousel>
           </div>
         </Container>
       </section>
@@ -256,6 +258,44 @@ export function Homepage() {
         </Container>
       </section>
 
+      <section className="section-space-tight pb-10">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div className="space-y-6">
+              <SectionHeading
+                eyebrow="Subtle refinement"
+                title="Results that look rested, not reinvented."
+                description="We document client journeys to show natural-looking healing and balanced enhancements. Phase 1 provides this interactive component for real photography later."
+              />
+              <div className="surface-card rounded-[2rem] p-5">
+                <p className="text-sm font-semibold tracking-wide text-ink">Treatment Focus</p>
+                <div className="mt-4 flex flex-col gap-3 text-sm text-muted">
+                  <div className="flex justify-between border-b border-border/70 pb-2">
+                    <span>Target</span><span>Skin texture & hydration</span>
+                  </div>
+                  <div className="flex justify-between border-b border-border/70 pb-2">
+                    <span>Protocol</span><span>Cellular Renewal Peel</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Timeline</span><span>3 sessions over 6 weeks</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="relative h-[25rem] w-full overflow-hidden rounded-[2.5rem] bg-shell-soft sm:h-[32rem]">
+              <ComparisonSlider 
+                beforeTitle="Before Treatment" 
+                afterTitle="After 6 Weeks" 
+                beforeTone="mocha" 
+                afterTone="blush" 
+                className="h-full w-full"
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
       <section id="gallery" className="section-space-tight">
         <Container>
           <div className="space-y-10">
@@ -288,23 +328,23 @@ export function Homepage() {
         </Container>
       </section>
 
-      <section className="section-space">
+      <section className="section-space overflow-hidden">
         <Container>
           <div className="space-y-10">
             <SectionHeading
               eyebrow="Client words"
               title="Testimonials are styled as premium proof, not filler."
-              description="Phase 0 keeps this static and lightweight while leaving space for a future slider or richer social proof treatment."
+              description="Phase 1 upgrades this into a smooth carousel layout, offering editorial social proof without cluttering the page rhythm."
             />
 
-            <div className="grid gap-6 lg:grid-cols-3">
+            <Carousel slideClassName="w-[90vw] sm:w-[26rem] lg:w-[28rem]">
               {testimonials.map((testimonial) => (
                 <TestimonialCard
                   key={testimonial.id}
                   testimonial={testimonial}
                 />
               ))}
-            </div>
+            </Carousel>
           </div>
         </Container>
       </section>

@@ -37,8 +37,8 @@ export function ServiceCard({ service }: ServiceCardProps) {
               {service.priceFrom}
             </p>
           </div>
-          <Button href="#contact" size="md" variant="secondary">
-            Inquire
+          <Button href={`/services/${service.slug}`} size="md" variant="secondary">
+            View Details
           </Button>
         </div>
       </div>
