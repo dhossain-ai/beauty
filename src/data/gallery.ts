@@ -29,4 +29,32 @@ export const galleryItems: GalleryItem[] = [
     imageTone: "pearl",
     aspect: "portrait",
   },
+  {
+    slug: "studio-space-calm",
+    title: "Studio calm",
+    service: "Our environment",
+    imageTone: "mocha",
+    aspect: "landscape",
+  },
+  {
+    slug: "texture-refinement",
+    title: "Texture refinement",
+    service: "Cellular renewal peel",
+    imageTone: "champagne",
+    aspect: "portrait",
+  },
+  {
+    slug: "signature-massage-sculpt",
+    title: "Signature massage sculpt",
+    service: "Restorative facial massage",
+    imageTone: "blush",
+    aspect: "square",
+  },
+  {
+    slug: "the-lueur-brightening",
+    title: "Lueur brightening",
+    service: "Brightening glow",
+    imageTone: "pearl",
+    aspect: "portrait",
+  },
 ];
