@@ -1,25 +1,26 @@
 # NEXT_PHASE
 
 ## Active Next Phase
-Phase R2B - Remaining Visual Calibration
+Phase R3 - Final Delivery Hardening
 
 ## Goal
-Treat the homepage layout as cleaned up and focus only on small remaining image, spacing, and presentation adjustments before the project moves into final delivery hardening.
+Treat the homepage and key preview sections as visually complete, and focus only on low-risk finishing work that improves delivery confidence before the project is considered fully wrapped.
 
 ## Scope
-- fine-tune any remaining homepage image crops or overlay balance revealed by real-device review
-- make small copy, spacing, or responsive adjustments where the lighter R2A layout exposes a genuine rough edge
-- preserve the current homepage structure, card system, and Soft Luxury direction
-- keep any further work tightly presentation-focused rather than exploratory
+- run real-device QA across the homepage and core inner pages
+- make small responsive, accessibility, crop, or spacing fixes where they clearly improve polish
+- sanity-check performance-sensitive surfaces such as large imagery, sliders, and CTA-heavy sections
+- remove or correct any last weak placeholder-like surface that still appears in the primary user paths
+- preserve the current structure, content model, and Soft Luxury direction
 
 ## Acceptance Criteria
-- the homepage remains lighter, clearer, and more image-led after R2A
-- services, specialists, results, testimonials, and journal sections keep a cleaner rhythm without regaining density
-- any additional changes are incremental polish, not another structural pass
-- the project is ready to move from visual cleanup into final delivery hardening
+- the homepage and key preview sections remain image-led and balanced without reopening structure
+- core pages hold up cleanly on mobile, tablet, and desktop without obvious presentation defects
+- any final changes remain incremental polish rather than new design exploration
+- the project is ready to be presented as a finished frontend portfolio delivery
 
 ## Do Not Do
-- do not reopen major homepage structure changes without a new scope
+- do not reopen major homepage or inner-page structure changes without a new scope
 - do not add backend, admin, auth, CMS, or database work
 - do not reintroduce low-value filler sections or oversized explanatory blocks
-- do not expand the project beyond final frontend polish
+- do not expand the project beyond final frontend polish and delivery QA

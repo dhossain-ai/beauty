@@ -106,3 +106,9 @@ Phase R2A: Once real assets are in place, the homepage should favor fewer suppor
 
 ### D32
 Phase R2A: Any homepage section that does not materially improve narrative flow, such as a weak gallery preview, should be reduced or removed rather than kept for checklist completeness.
+
+### D33
+Phase R2B: Remaining asset work should use only a few supplemental local images, then redistribute them through the existing data layer to reduce visible repetition across results, specialists, services, and journal previews without redesigning layout.
+
+### D34
+Phase R2B: Once the site is largely image-led, journal content should surface real cover imagery both in the article hero and in compact homepage preview thumbnails instead of leaving secondary editorial links text-only.

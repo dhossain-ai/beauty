@@ -24,8 +24,15 @@ Frontend-only premium beauty salon / beauty studio website with hardcoded conten
 - AI_RULES.md
 
 ## Current Build State
-Phase R2A completed.
-The homepage layout has been cleaned up after the visual asset pass, reducing text density, removing low-value support blocks, and making the page feel lighter, more intentional, and more presentation-ready without reopening the broader site structure.
+Phase R2B completed.
+The key missing homepage and preview imagery has been completed with a small supplemental local asset set, giving results, specialists, services, and journal surfaces a more consistent, portfolio-ready visual finish without reopening the homepage structure again.
+
+## Completed In Phase R2B
+- Added a small supplemental set of local imagery for specialist, ritual, and product coverage so the asset pack feels more complete without becoming noisy or inconsistent.
+- Reassigned weaker or over-repeated homepage-adjacent visuals across services, gallery previews, specialists, and results to improve distinction and reduce the placeholder-heavy feel.
+- Completed the missing journal cover usage by wiring each post image into the journal detail hero and surfacing compact cover thumbnails in the homepage journal preview.
+- Strengthened specialist presentation by expanding Sofia's recent-work imagery and replacing Monika's weaker portrait slot with a stronger soft-luxury alternative.
+- Kept the image treatment inside the existing shared media/data system and revalidated the build after the asset pass.
 
 ## Completed In Phase R2A
 - Simplified the Signature Services section so the carousel and cards lead the section instead of extra supporting mini-cards.
@@ -119,6 +126,7 @@ The homepage layout has been cleaned up after the visual asset pass, reducing te
 7. Homepage structural refinement before real assets (Done)
 8. Visual asset integration and responsive image polish (Done)
 9. Homepage layout cleanup after asset integration (Done)
+10. Missing asset completion and preview consistency (Done)
 
 ## Planned Main Pages
 - Home (Done)
@@ -135,7 +143,7 @@ The homepage layout has been cleaned up after the visual asset pass, reducing te
 - Contact / Booking (Done)
 
 ## Immediate Next Goal
-Phase R2B: finish any remaining image calibration and final homepage-adjacent polish exposed by real-device QA, then move into lightweight delivery hardening.
+Phase R3: perform final delivery hardening across the finished frontend, focusing on real-device QA, small responsive/accessibility/performance calibration, and any last low-risk presentation fixes.
 
 ## Open Creative Direction
 Use soft luxury, not dark glam, not fashion-editorial-first, not medical beauty-tech.
