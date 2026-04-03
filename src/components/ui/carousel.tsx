@@ -51,21 +51,23 @@ export function Carousel({
       </div>
 
       {showArrows && slideItems.length > 1 && (
-        <div className="mt-8 flex items-center justify-end gap-3 lg:absolute lg:-bottom-20 lg:right-0 lg:mt-0">
-          <button
-            onClick={scrollPrev}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-border-strong/70 bg-white/72 text-ink shadow-sm transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_32px_rgba(69,54,48,0.12)] disabled:pointer-events-none disabled:opacity-50"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button
-            onClick={scrollNext}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-border-strong/70 bg-white/72 text-ink shadow-sm transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_32px_rgba(69,54,48,0.12)] disabled:pointer-events-none disabled:opacity-50"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
+        <div className="mt-8 flex items-center justify-end lg:absolute lg:-bottom-24 lg:right-0 lg:mt-0">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/80 bg-white/78 p-1.5 shadow-[0_18px_38px_rgba(69,54,48,0.12)] backdrop-blur-md">
+            <button
+              onClick={scrollPrev}
+              className="flex h-12 w-12 touch-manipulation items-center justify-center rounded-full border border-border-strong/70 bg-white text-ink-strong shadow-[0_10px_22px_rgba(69,54,48,0.08)] transition-[transform,background-color,box-shadow,color] duration-300 hover:-translate-y-0.5 hover:bg-shell-soft hover:text-ink hover:shadow-[0_16px_30px_rgba(69,54,48,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong/65 focus-visible:ring-offset-2 focus-visible:ring-offset-shell-soft disabled:pointer-events-none disabled:opacity-50"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={scrollNext}
+              className="flex h-12 w-12 touch-manipulation items-center justify-center rounded-full border border-border-strong/70 bg-white text-ink-strong shadow-[0_10px_22px_rgba(69,54,48,0.08)] transition-[transform,background-color,box-shadow,color] duration-300 hover:-translate-y-0.5 hover:bg-shell-soft hover:text-ink hover:shadow-[0_16px_30px_rgba(69,54,48,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong/65 focus-visible:ring-offset-2 focus-visible:ring-offset-shell-soft disabled:pointer-events-none disabled:opacity-50"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
         </div>
       )}
     </div>

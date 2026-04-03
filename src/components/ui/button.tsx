@@ -14,15 +14,15 @@ type ButtonProps = SharedProps & ComponentPropsWithoutRef<"button">;
 type ButtonLinkProps = SharedProps & { href: string };
 
 const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-full text-sm font-semibold tracking-[0.02em] transition-[transform,background-color,border-color,color,box-shadow] duration-500 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong/60 focus-visible:ring-offset-2 focus-visible:ring-offset-shell disabled:pointer-events-none disabled:opacity-60";
+  "inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold tracking-[0.02em] transition-[transform,background-color,border-color,color,box-shadow] duration-500 ease-out touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong/65 focus-visible:ring-offset-2 focus-visible:ring-offset-shell-soft active:translate-y-px disabled:pointer-events-none disabled:opacity-60";
 
 const variants = {
   primary:
-    "border border-transparent bg-ink text-shell-soft shadow-[0_16px_38px_rgba(69,54,48,0.18)] hover:-translate-y-0.5 hover:bg-ink-strong hover:shadow-[0_20px_44px_rgba(69,54,48,0.22)]",
+    "border border-[#4a3933]/55 bg-[linear-gradient(180deg,#40302b_0%,#261d1a_100%)] text-shell-soft shadow-[0_18px_42px_rgba(69,54,48,0.2)] hover:-translate-y-0.5 hover:border-[#5d4b43]/58 hover:bg-[linear-gradient(180deg,#4b3933_0%,#2d221f_100%)] hover:shadow-[0_22px_48px_rgba(69,54,48,0.24)]",
   secondary:
-    "border border-border-strong/70 bg-white/72 text-ink shadow-[0_10px_26px_rgba(69,54,48,0.08)] hover:-translate-y-0.5 hover:border-border-strong hover:bg-white hover:shadow-[0_16px_36px_rgba(69,54,48,0.12)]",
+    "border border-border-strong/90 bg-white/90 text-ink-strong shadow-[0_14px_32px_rgba(69,54,48,0.1)] hover:-translate-y-0.5 hover:border-mocha/45 hover:bg-white hover:shadow-[0_18px_40px_rgba(69,54,48,0.14)]",
   ghost:
-    "border border-transparent bg-transparent text-ink hover:bg-white/70 hover:text-ink-strong",
+    "border border-border/85 bg-white/46 text-ink-strong shadow-[0_8px_20px_rgba(69,54,48,0.06)] hover:-translate-y-0.5 hover:border-border-strong/90 hover:bg-white/82 hover:shadow-[0_14px_32px_rgba(69,54,48,0.1)]",
 };
 
 const sizes = {

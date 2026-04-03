@@ -114,11 +114,11 @@ export function ComparisonSlider({
       </div>
 
       <div
-        className="absolute bottom-0 top-0 z-20 w-1 -ml-[0.5px] cursor-ew-resize bg-white shadow-[0_0_15px_rgba(0,0,0,0.1)]"
+        className="absolute bottom-0 top-0 z-20 w-1.5 -ml-[0.75px] cursor-ew-resize bg-white/92 shadow-[0_0_18px_rgba(0,0,0,0.16)]"
         style={{ left: `${sliderPosition}%` }}
       >
-        <div className="absolute top-1/2 left-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-          <svg className="h-4 w-4 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <div className="absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/80 bg-white/96 text-ink-strong shadow-[0_18px_34px_rgba(0,0,0,0.2)] backdrop-blur-sm">
+          <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M15 18l-6-6 6-6" />
             <path d="M9 18l6-6-6-6" opacity="0.5" />
           </svg>

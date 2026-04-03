@@ -30,7 +30,7 @@ export function CtaBlock({
           <div className="absolute -right-16 bottom-0 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(215,185,166,0.28),rgba(215,185,166,0))]" />
           <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div className="relative space-y-5">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-ink/68">
                 {eyebrow}
               </p>
               <h2 className="text-balance font-serif text-4xl leading-none text-ink-strong sm:text-5xl lg:text-6xl">
@@ -41,8 +41,8 @@ export function CtaBlock({
               </p>
             </div>
 
-            <div className="relative rounded-[2rem] border border-white/65 bg-white/60 p-4 shadow-[0_18px_40px_rgba(86,64,54,0.08)] sm:p-5 lg:justify-self-end">
-              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+            <div className="relative rounded-[2rem] border border-white/78 bg-white/74 p-4 shadow-[0_22px_48px_rgba(86,64,54,0.1)] backdrop-blur-md sm:p-5 lg:min-w-[18rem] lg:justify-self-end">
+              <div className="flex flex-col gap-3.5 sm:flex-row lg:flex-col">
                 <Button href={primaryHref} size="lg" fullWidth>
                   {primaryLabel}
                 </Button>
