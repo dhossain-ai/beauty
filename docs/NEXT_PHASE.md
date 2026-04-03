@@ -1,25 +1,25 @@
 # NEXT_PHASE
 
 ## Active Next Phase
-Phase R3 - Final Delivery Polish
+Phase R2B - Remaining Visual Calibration
 
 ## Goal
-Treat the site as visually complete and focus only on light final-pass work that improves confidence before portfolio presentation or handoff.
+Treat the homepage layout as cleaned up and focus only on small remaining image, spacing, and presentation adjustments before the project moves into final delivery hardening.
 
 ## Scope
-- run a tighter accessibility review across navigation, buttons, cards, and image presentation
-- trim any obvious performance waste exposed by the new local imagery
-- make small crop, spacing, or copy adjustments only where real-device QA reveals a genuine issue
-- preserve the existing structure, component system, and Soft Luxury direction
+- fine-tune any remaining homepage image crops or overlay balance revealed by real-device review
+- make small copy, spacing, or responsive adjustments where the lighter R2A layout exposes a genuine rough edge
+- preserve the current homepage structure, card system, and Soft Luxury direction
+- keep any further work tightly presentation-focused rather than exploratory
 
 ## Acceptance Criteria
-- the site remains image-led, premium, and mobile-polished
-- no homepage structural churn is introduced after R1 and R2
-- the new visual asset treatment stays consistent across home, services, specialists, gallery, and journal
-- any further changes are minor delivery polish, not a new feature phase
+- the homepage remains lighter, clearer, and more image-led after R2A
+- services, specialists, results, testimonials, and journal sections keep a cleaner rhythm without regaining density
+- any additional changes are incremental polish, not another structural pass
+- the project is ready to move from visual cleanup into final delivery hardening
 
 ## Do Not Do
-- do not reopen major design changes without a new scope
+- do not reopen major homepage structure changes without a new scope
 - do not add backend, admin, auth, CMS, or database work
-- do not replace the curated image set with inconsistent or lower-quality visuals
+- do not reintroduce low-value filler sections or oversized explanatory blocks
 - do not expand the project beyond final frontend polish

@@ -100,3 +100,9 @@ Phase R2: The real-asset pass should use a small curated local image pack wired 
 
 ### D30
 Phase R2: Real photography should inherit the existing soft-luxury treatment through one shared `MediaFrame` pattern so overlays, crops, contrast, and responsive behavior stay consistent across hero, specialists, services, gallery, and journal content.
+
+### D31
+Phase R2A: Once real assets are in place, the homepage should favor fewer support blocks and lean more heavily on image-led cards and carousels so the page feels finished instead of over-explained.
+
+### D32
+Phase R2A: Any homepage section that does not materially improve narrative flow, such as a weak gallery preview, should be reduced or removed rather than kept for checklist completeness.

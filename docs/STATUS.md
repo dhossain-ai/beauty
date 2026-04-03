@@ -24,8 +24,17 @@ Frontend-only premium beauty salon / beauty studio website with hardcoded conten
 - AI_RULES.md
 
 ## Current Build State
-Phase R2 completed.
-The homepage and core visual touchpoints now use a controlled local image set, replacing the placeholder-heavy feel with a more polished, portfolio-ready visual presentation while preserving the R1 structure.
+Phase R2A completed.
+The homepage layout has been cleaned up after the visual asset pass, reducing text density, removing low-value support blocks, and making the page feel lighter, more intentional, and more presentation-ready without reopening the broader site structure.
+
+## Completed In Phase R2A
+- Simplified the Signature Services section so the carousel and cards lead the section instead of extra supporting mini-cards.
+- Reduced oversized homepage heading and intro treatments where they were making the page feel heavier than necessary.
+- Simplified the Studio Approach section into a cleaner image-plus-text composition with less stacked explanation.
+- Reduced visual and text weight in the Specialists section so portraits stay more visible and the cards feel less repetitive.
+- Removed the weak homepage Gallery preview block to improve page rhythm and avoid another low-value visual interruption.
+- Tightened the Testimonials and Beauty Journal sections so both read faster and feel more editorial, aligned, and visually balanced.
+- Rebalanced the Results section by trimming weaker supporting imagery and keeping the strongest proof area intact.
 
 ## Completed In Phase R2
 - Added a curated local asset pack for the hero, specialist portraits, results details, product/editorial shots, and supporting gallery imagery.
@@ -109,6 +118,7 @@ The homepage and core visual touchpoints now use a controlled local image set, r
 6. Portfolio packaging and frontend hardening (Done)
 7. Homepage structural refinement before real assets (Done)
 8. Visual asset integration and responsive image polish (Done)
+9. Homepage layout cleanup after asset integration (Done)
 
 ## Planned Main Pages
 - Home (Done)
@@ -125,7 +135,7 @@ The homepage and core visual touchpoints now use a controlled local image set, r
 - Contact / Booking (Done)
 
 ## Immediate Next Goal
-Phase R3: optional final delivery polish focused on accessibility review, performance trimming, and any minor copy/image calibration exposed by real-device QA.
+Phase R2B: finish any remaining image calibration and final homepage-adjacent polish exposed by real-device QA, then move into lightweight delivery hardening.
 
 ## Open Creative Direction
 Use soft luxury, not dark glam, not fashion-editorial-first, not medical beauty-tech.
