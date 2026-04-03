@@ -79,3 +79,9 @@ Phase 4: Replaced cross-page CTA anchors with route-safe links (`/services`, `/c
 
 ### D23
 Phase 4: Implemented the Journal reading experience with a custom editorial text flow in the existing global stylesheet instead of introducing an extra typography dependency, keeping scope tight while ensuring article pages still feel premium.
+
+### D24
+Phase 5: The repository presentation should carry the portfolio framing, while the live site copy should remain business-facing and believable as a real premium salon website.
+
+### D25
+Phase 5: Added environment-aware metadata helpers plus generated `robots.txt`, `sitemap.xml`, and social image routes so the project has a cleaner delivery baseline without introducing backend complexity.

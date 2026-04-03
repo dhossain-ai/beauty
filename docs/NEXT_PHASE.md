@@ -1,36 +1,31 @@
 # NEXT_PHASE
 
-## Phase 5 — Portfolio Packaging and Frontend Hardening
+## Post-Delivery Options
 
 ## Goal
-Finalize the studio concept as a stronger portfolio piece by hardening presentation details, accessibility, and frontend readiness without expanding into backend scope.
+The core frontend concept is complete. Any next work should be treated as optional extension scope rather than part of the current delivery.
 
 ## Scope
-Continue using hardcoded data.
-Stay frontend-only and keep the page count stable.
+Only proceed if a new phase is explicitly opened.
+Do not expand the current delivery by default.
 
-## Tasks
-1. Accessibility and semantics pass
-   - audit landmarks, heading order, labels, and keyboard affordances
-   - improve reduced-motion handling where needed
+## Optional Directions
+1. Production content swap
+   - replace placeholder media with real photography
+   - refine copy against a real salon brief and brand voice
 
-2. Metadata and portfolio readiness
-   - refine page metadata, favicon/app identity, and social preview readiness
-   - ensure the project presents cleanly as a sellable frontend concept
+2. CMS or booking integration
+   - introduce real content management or booking logic only if scope changes
+   - preserve the existing component and token system during any backend expansion
 
-3. Final frontend hardening
-   - review minor visual inconsistencies that remain after Phase 4
-   - verify responsive behavior once more against the final polished layouts
-   - prepare placeholder media and content structure for easy future photography replacement
+3. Additional production hardening
+   - add deeper accessibility QA, analytics, localization, or deployment-specific refinements if required by a real client context
 
 ## Acceptance Criteria
-- The site feels portfolio-finished, not just feature-complete
-- Accessibility basics are clearly respected across the marketing experience
-- Metadata and presentation details support a polished handoff or showcase
-- No backend or CMS scope is introduced
+- Any future work must have a clearly defined new scope
+- The current project remains stable, portfolio-ready, and frontend-first until that happens
 
 ## Do Not Do
-- no CMS integration
-- no backend wiring
-- no auth, admin, or booking engine work
-- stay within the existing token and component system
+- do not reopen major design changes without a new phase
+- do not add backend, admin, auth, or database work by default
+- do not dilute the Soft Luxury direction during future adaptation
