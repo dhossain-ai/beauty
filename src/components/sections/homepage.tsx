@@ -1,5 +1,4 @@
-import { ServiceCard } from "@/components/cards/service-card";
-import { SpecialistCard } from "@/components/cards/specialist-card";
+import Link from "next/link";
 import { TestimonialCard } from "@/components/cards/testimonial-card";
 import { CtaBlock } from "@/components/sections/cta-block";
 import { Badge } from "@/components/ui/badge";
@@ -8,66 +7,19 @@ import { Carousel } from "@/components/ui/carousel";
 import { ComparisonSlider } from "@/components/ui/comparison-slider";
 import { Container } from "@/components/ui/container";
 import { MediaFrame } from "@/components/ui/media-frame";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { blogPosts } from "@/data/blog-posts";
 import { galleryItems } from "@/data/gallery";
 import { beautyMedia } from "@/data/media";
-import { pricingSnippets } from "@/data/pricing";
 import { services } from "@/data/services";
 import { philosophyPillars, studioInfo, trustMetrics } from "@/data/site";
 import { specialists } from "@/data/specialists";
 import { testimonials } from "@/data/testimonials";
-import { cn } from "@/lib/cn";
 
-const featuredServices = services.slice(0, 5);
+const featuredServices = services.slice(0, 4);
 const featuredSpecialists = specialists.slice(0, 3);
-const pricingPreview = pricingSnippets.slice(0, 2);
 const featuredJournalPost = blogPosts[0]!;
 const secondaryJournalPosts = blogPosts.slice(1, 3);
-const galleryPreviewItems = [
-  galleryItems[0]!,
-  galleryItems[1]!,
-  galleryItems[4]!,
-  galleryItems[5]!,
-];
-const galleryPreviewLayout = [
-  "md:col-span-5 md:row-span-2",
-  "md:col-span-3",
-  "md:col-span-3",
-  "md:col-span-5",
-];
-const resultPreviewItems = [galleryItems[2]!, galleryItems[6]!];
-const serviceHighlights = [
-  {
-    label: "Most booked",
-    value: "Radiance Facial Ritual",
-    description: "A fast read on glow, touch, and finish.",
-  },
-  {
-    label: "Best first visit",
-    value: "Consult-led skin mapping",
-    description: "Clear direction before building a routine.",
-  },
-  {
-    label: "Signature mood",
-    value: "Soft polish, never overdone",
-    description: "Designed for modern, believable beauty results.",
-  },
-];
-const specialistGuidance = [
-  {
-    title: "Skin reset",
-    description: "Book Amelia or Monika for hydration, texture, and bridal prep.",
-  },
-  {
-    title: "Brows and lashes",
-    description: "Eva leads low-maintenance definition with a softer finish.",
-  },
-  {
-    title: "Occasion polish",
-    description: "Sofia is the calm choice for event-ready beauty planning.",
-  },
-];
+const resultPreviewItem = galleryItems[2]!;
 const resultHighlights = [
   { label: "Texture", value: "Smoother, brighter finish" },
   { label: "Definition", value: "Brows and lashes stay soft" },
@@ -87,10 +39,10 @@ export function Homepage() {
                 <p className="text-sm font-semibold uppercase tracking-[0.28em] text-muted">
                   Soft luxury beauty rituals
                 </p>
-                <h1 className="text-balance font-serif text-[3.25rem] leading-[0.92] text-ink-strong sm:text-[4.75rem] lg:text-[6.4rem]">
+                <h1 className="text-balance font-serif text-[3.15rem] leading-[0.92] text-ink-strong sm:text-[4.4rem] lg:text-[5.8rem]">
                   Calm beauty, composed with more intention.
                 </h1>
-                <p className="max-w-xl text-lg leading-8 text-muted sm:text-xl">
+                <p className="max-w-xl text-base leading-8 text-muted sm:text-lg">
                   {studioInfo.shortName} is built for women who want refined
                   treatments, a quieter appointment rhythm, and polished results
                   that still feel natural in daylight.
@@ -122,29 +74,15 @@ export function Homepage() {
                 ))}
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-[1.12fr_0.88fr]">
-                <div className="surface-panel rounded-[1.75rem] px-5 py-4">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted">
-                    Studio promise
-                  </p>
-                  <p className="mt-2 text-sm leading-7 text-ink">
-                    One-to-one appointments, tailored consultation, and beauty
-                    work designed to settle into real routines instead of
-                    chasing louder trends.
-                  </p>
-                </div>
-                <div className="rounded-[1.75rem] border border-ink-strong/12 bg-ink px-5 py-4 text-shell-soft shadow-[0_20px_52px_rgba(38,29,26,0.18)]">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-white/65">
-                    Signature pairing
-                  </p>
-                  <p className="mt-2 font-serif text-2xl leading-none text-white">
-                    Skin glow + brow balance
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-white/72">
-                    The fastest way to understand the studio finish before real
-                    event season begins.
-                  </p>
-                </div>
+              <div className="surface-panel rounded-[1.75rem] px-5 py-4">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted">
+                  Studio promise
+                </p>
+                <p className="mt-2 text-sm leading-7 text-ink">
+                  One-to-one appointments, tailored consultation, and beauty
+                  work designed to settle into real routines instead of chasing
+                  louder trends.
+                </p>
               </div>
             </div>
 
@@ -162,25 +100,12 @@ export function Homepage() {
                 overlayClassName="max-w-[18rem] sm:max-w-[20rem]"
               />
 
-              <div className="surface-panel absolute bottom-5 left-5 max-w-[15rem] rounded-[1.5rem] px-4 py-4 sm:bottom-7 sm:left-7">
+              <div className="surface-panel absolute bottom-5 left-5 max-w-[14rem] rounded-[1.5rem] px-4 py-4 sm:bottom-7 sm:left-7">
                 <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted">
                   Reviewed and tailored
                 </p>
                 <p className="mt-2 font-serif text-2xl leading-none text-ink-strong">
                   Calm from arrival to finish
-                </p>
-                <p className="mt-2 text-sm leading-6 text-muted">
-                  Each treatment starts with a short consultation so the result
-                  stays believable and maintenance-friendly.
-                </p>
-              </div>
-
-              <div className="absolute right-5 top-5 hidden max-w-[15rem] rounded-[1.5rem] border border-white/35 bg-white/18 px-4 py-4 text-white shadow-[0_20px_44px_rgba(48,35,29,0.18)] backdrop-blur-md sm:block">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-white/68">
-                  House style
-                </p>
-                <p className="mt-2 font-serif text-2xl leading-none">
-                  Refined, rested, recognisably you
                 </p>
               </div>
             </div>
@@ -190,106 +115,112 @@ export function Homepage() {
 
       <section id="services" className="section-space overflow-hidden pt-0">
         <Container>
-          <div className="overflow-hidden rounded-[3rem] border border-border/70 bg-[linear-gradient(180deg,rgba(255,252,248,0.82)_0%,rgba(241,228,218,0.94)_100%)] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
-            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-              <div className="space-y-5">
+          <div className="space-y-6">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl space-y-4">
                 <Badge variant="outline">Signature services</Badge>
-                <h2 className="text-balance font-serif text-[2.85rem] leading-[0.94] text-ink-strong sm:text-[3.6rem] lg:text-[4.65rem]">
-                  Start with a tighter edit of the treatments clients book
-                  first.
+                <h2 className="text-balance font-serif text-[2.45rem] leading-[0.96] text-ink-strong sm:text-[3.05rem] lg:text-[3.8rem]">
+                  Signature treatments should read in the cards, not in extra
+                  explainer blocks.
                 </h2>
-                <p className="max-w-xl text-base leading-8 text-muted sm:text-lg">
-                  Explore the treatments women return to for glow, definition,
-                  event prep, and skin reset, each shaped to feel polished
-                  without becoming overdone.
+                <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
+                  Start with glow, definition, event prep, and skin reset.
                 </p>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-3">
-                {serviceHighlights.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-[1.5rem] border border-white/65 bg-white/62 p-4 shadow-[0_14px_30px_rgba(86,64,54,0.06)]"
-                  >
-                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-muted">
-                      {item.label}
-                    </p>
-                    <p className="mt-2 font-serif text-[1.75rem] leading-[0.98] text-ink-strong">
-                      {item.value}
-                    </p>
-                    <p className="mt-2 text-sm leading-6 text-muted">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <Button href="/services" variant="secondary">
+                View full treatment menu
+              </Button>
             </div>
 
-            <div className="mt-10">
-              <Carousel slideClassName="w-[86vw] sm:w-[22rem] lg:w-[24rem]">
-                {featuredServices.map((service) => (
-                  <ServiceCard key={service.slug} service={service} />
-                ))}
-              </Carousel>
-            </div>
+            <Carousel slideClassName="w-[88vw] sm:w-[21rem] lg:w-[22.5rem]">
+              {featuredServices.map((service) => (
+                <article
+                  key={service.slug}
+                  className="surface-card group flex h-full flex-col rounded-[2rem] p-4 transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-border-strong/70 hover:shadow-[var(--shadow-card-hover)] sm:p-5"
+                >
+                  <MediaFrame
+                    aspect="landscape"
+                    title={service.title}
+                    subtitle={service.highlight}
+                    label={service.category}
+                    tone={service.imageTone}
+                    image={service.image}
+                    className="rounded-[1.6rem]"
+                    overlayClassName="max-w-[12rem] bg-white/58 p-3 sm:max-w-[13rem] sm:p-4"
+                  />
+                  <div className="flex flex-1 flex-col gap-4 px-2 pb-2 pt-5">
+                    <div className="flex items-center justify-between gap-4 text-sm">
+                      <span className="font-medium text-muted">
+                        {service.duration}
+                      </span>
+                      <span className="font-semibold text-ink-strong">
+                        {service.priceFrom}
+                      </span>
+                    </div>
+                    <p className="text-sm leading-7 text-muted">
+                      {service.excerpt}
+                    </p>
+                    <div className="mt-auto pt-2">
+                      <Button
+                        href={`/services/${service.slug}`}
+                        size="md"
+                        variant="secondary"
+                      >
+                        View details
+                      </Button>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </Carousel>
           </div>
         </Container>
       </section>
 
       <section className="section-space-tight">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+          <div className="grid gap-8 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
             <MediaFrame
               aspect="landscape"
               title="A quieter appointment rhythm"
-              subtitle="Soft luxury here means warm consultation, tactile care, and enough polish to feel finished without becoming theatrical."
+              subtitle="Warm consultation, tactile care, and enough polish to feel finished without becoming theatrical."
               tone="pearl"
+              image={beautyMedia.productFlatlay}
               className="min-h-[320px] sm:min-h-[420px]"
+              overlayClassName="max-w-[16rem] bg-white/56 p-4"
             />
 
-            <div className="space-y-8">
-              <SectionHeading
-                eyebrow="Studio approach"
-                title="The experience stays intimate, consult-led, and quietly luxurious."
-                description="Every appointment is designed to feel warm, unhurried, and clear from the first conversation through aftercare, so the studio atmosphere supports the treatment instead of competing with it."
-              />
+            <div className="space-y-6">
+              <div className="max-w-xl space-y-4">
+                <Badge variant="outline">Studio approach</Badge>
+                <h2 className="text-balance font-serif text-[2.3rem] leading-[0.98] text-ink-strong sm:text-[2.95rem] lg:text-[3.55rem]">
+                  Fewer words, better balance, clearer atmosphere.
+                </h2>
+                <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
+                  The studio experience is warm, consult-led, and intentionally
+                  unhurried from the first conversation through aftercare.
+                </p>
+              </div>
 
-              <div className="overflow-hidden rounded-[2rem] border border-border/70 bg-white/58">
-                {philosophyPillars.map((pillar, index) => (
+              <div className="grid gap-3 sm:grid-cols-2">
+                {philosophyPillars.slice(0, 2).map((pillar) => (
                   <div
                     key={pillar}
-                    className={cn(
-                      "flex items-start gap-3 px-5 py-4",
-                      index !== philosophyPillars.length - 1 &&
-                        "border-b border-border/70",
-                    )}
+                    className="rounded-[1.6rem] border border-border/70 bg-white/62 p-4"
                   >
-                    <span className="mt-2 inline-flex h-2.5 w-2.5 rounded-full bg-accent-strong" />
                     <p className="text-sm leading-7 text-ink">{pillar}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="surface-card rounded-[2rem] p-5">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-muted">
-                  Pricing preview
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
+                  Consultation-first care, tailored to real maintenance habits
                 </p>
-                <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                  {pricingPreview.map((item) => (
-                    <div
-                      key={item.title}
-                      className="rounded-[1.5rem] border border-border/70 bg-white/62 p-4"
-                    >
-                      <p className="font-medium text-ink">{item.title}</p>
-                      <p className="mt-1 text-sm leading-6 text-muted">
-                        {item.note}
-                      </p>
-                      <p className="mt-3 font-semibold text-ink-strong">
-                        {item.price}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                <Button href="/pricing" variant="secondary">
+                  View pricing
+                </Button>
               </div>
             </div>
           </div>
@@ -298,44 +229,70 @@ export function Homepage() {
 
       <section id="specialists" className="section-space">
         <Container>
-          <div className="grid gap-8 xl:grid-cols-[0.8fr_1.2fr] xl:items-start">
-            <div className="space-y-6 xl:pr-6">
-              <SectionHeading
-                eyebrow="Studio specialists"
-                title="Different specialties, one consistent standard of soft-definition work."
-                description="Meet the resident specialists behind the studio rituals, each introduced with a distinct focus so choosing the right artist feels straightforward and personal."
-                action={
-                  <Button href="/specialists" variant="secondary">
-                    Meet all specialists
-                  </Button>
-                }
-              />
-
-              <div className="rounded-[2rem] border border-border/70 bg-[linear-gradient(180deg,rgba(255,250,246,0.94)_0%,rgba(232,210,203,0.42)_100%)] p-6">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted">
-                  Who to book
+          <div className="space-y-6">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl space-y-4">
+                <Badge variant="outline">Studio specialists</Badge>
+                <h2 className="text-balance font-serif text-[2.35rem] leading-[0.98] text-ink-strong sm:text-[3rem] lg:text-[3.7rem]">
+                  Distinct specialties, lighter presentation, stronger portrait
+                  presence.
+                </h2>
+                <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
+                  Each specialist is introduced with just enough context to make
+                  booking feel clear and personal.
                 </p>
-                <div className="mt-4 space-y-4">
-                  {specialistGuidance.map((item) => (
-                    <div
-                      key={item.title}
-                      className="border-b border-border/70 pb-4 last:border-b-0 last:pb-0"
-                    >
-                      <p className="font-serif text-2xl leading-none text-ink-strong">
-                        {item.title}
-                      </p>
-                      <p className="mt-2 text-sm leading-6 text-muted">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
               </div>
+
+              <Button href="/specialists" variant="secondary">
+                Meet all specialists
+              </Button>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {featuredSpecialists.map((specialist) => (
-                <SpecialistCard key={specialist.slug} specialist={specialist} />
+                <article key={specialist.slug} className="group">
+                  <MediaFrame
+                    aspect="portrait"
+                    title={specialist.name}
+                    subtitle=""
+                    label={specialist.specialties[0] ?? "Resident specialist"}
+                    tone={specialist.imageTone}
+                    image={specialist.image}
+                    className="rounded-[2rem]"
+                    overlayClassName="max-w-[10rem] border-white/55 bg-white/48 p-3 sm:max-w-[11rem] sm:p-3.5"
+                  />
+
+                  <div className="space-y-4 px-1 pb-1 pt-4">
+                    <div className="space-y-2">
+                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
+                        {specialist.experience}
+                      </p>
+                      <p className="text-sm leading-6 text-muted">
+                        {specialist.role}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {specialist.specialties.slice(0, 2).map((specialty) => (
+                        <span
+                          key={specialty}
+                          className="rounded-full border border-border/70 bg-white/72 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink"
+                        >
+                          {specialty}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div>
+                      <Button
+                        href={`/specialists/${specialist.slug}`}
+                        variant="ghost"
+                      >
+                        View profile
+                      </Button>
+                    </div>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
@@ -345,39 +302,38 @@ export function Homepage() {
       <section className="section-space-tight">
         <Container>
           <div className="overflow-hidden rounded-[3rem] bg-[linear-gradient(180deg,#4a3832_0%,#261d1a_100%)] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
-            <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
+            <div className="grid gap-8 lg:grid-cols-[1.14fr_0.86fr] lg:items-start">
               <div className="space-y-6">
                 <div className="space-y-4">
                   <p className="text-sm font-semibold uppercase tracking-[0.28em] text-white/68">
                     Results preview
                   </p>
-                  <h2 className="text-balance font-serif text-[2.9rem] leading-[0.92] text-white sm:text-[3.7rem] lg:text-[4.55rem]">
-                    Proof stays soft, but the difference is clear.
+                  <h2 className="text-balance font-serif text-[2.55rem] leading-[0.94] text-white sm:text-[3.25rem] lg:text-[4rem]">
+                    Results stay soft, but the difference still reads clearly.
                   </h2>
-                  <p className="max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
-                    Our results philosophy stays rooted in believable change:
-                    smoother texture, calmer skin, and softly structured detail
-                    that still feels recognisably yours.
+                  <p className="max-w-2xl text-sm leading-7 text-white/72 sm:text-base sm:leading-8">
+                    Smoother texture, calmer skin, and softly structured detail
+                    remain the strongest proof point on the page.
                   </p>
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-3">
+                <div className="grid gap-3 sm:grid-cols-3">
                   {resultHighlights.map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-[1.5rem] border border-white/12 bg-white/8 p-4 backdrop-blur-sm"
+                      className="rounded-[1.4rem] border border-white/12 bg-white/8 p-4 backdrop-blur-sm"
                     >
                       <p className="text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-white/58">
                         {item.label}
                       </p>
-                      <p className="mt-2 font-serif text-[1.7rem] leading-[0.98] text-white">
+                      <p className="mt-2 font-serif text-[1.5rem] leading-[1] text-white">
                         {item.value}
                       </p>
                     </div>
                   ))}
                 </div>
 
-                <div className="relative h-[24rem] w-full overflow-hidden rounded-[2.5rem] bg-shell-soft sm:h-[30rem]">
+                <div className="relative h-[23rem] w-full overflow-hidden rounded-[2.5rem] bg-shell-soft sm:h-[29rem]">
                   <ComparisonSlider
                     beforeTitle="Before Treatment"
                     afterTitle="After 6 Weeks"
@@ -390,17 +346,16 @@ export function Homepage() {
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                {resultPreviewItems.map((item) => (
-                  <MediaFrame
-                    key={item.slug}
-                    aspect={item.aspect}
-                    title={item.title}
-                    subtitle={item.service}
-                    tone={item.imageTone}
-                    className="min-h-[250px]"
-                  />
-                ))}
+              <div className="space-y-4">
+                <MediaFrame
+                  aspect={resultPreviewItem.aspect}
+                  title={resultPreviewItem.title}
+                  subtitle={resultPreviewItem.service}
+                  tone={resultPreviewItem.imageTone}
+                  image={resultPreviewItem.image}
+                  className="min-h-[280px]"
+                  overlayClassName="max-w-[12rem] bg-white/52 p-3.5"
+                />
 
                 <div className="rounded-[2rem] border border-white/12 bg-white/8 p-5 backdrop-blur-sm">
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-white/58">
@@ -433,149 +388,108 @@ export function Homepage() {
         </Container>
       </section>
 
-      <section id="gallery" className="section-space-tight">
+      <section className="section-space-tight overflow-hidden">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-            <SectionHeading
-              eyebrow="Gallery preview"
-              title="Just enough image rhythm to sell the atmosphere."
-              description="A curated mix of studio details and treatment outcomes gives the brand an editorial image rhythm while keeping the scroll light and elegant."
-              action={
-                <Button href="/gallery" variant="secondary">
-                  View full gallery
-                </Button>
-              }
-            />
-
-            <div className="grid gap-4 md:grid-cols-8">
-              {galleryPreviewItems.map((item, index) => (
-                <div
-                  key={item.slug}
-                  className={cn("md:col-span-4", galleryPreviewLayout[index])}
-                >
-                  <MediaFrame
-                    aspect={item.aspect}
-                    title={item.title}
-                    subtitle={item.service}
-                    tone={item.imageTone}
-                    className="h-full min-h-[250px]"
-                  />
-                </div>
-              ))}
+          <div className="grid gap-6 lg:grid-cols-[0.58fr_1.42fr] lg:items-end">
+            <div className="space-y-4">
+              <Badge variant="outline">Client words</Badge>
+              <h2 className="text-balance font-serif text-[2.2rem] leading-[0.98] text-ink-strong sm:text-[2.8rem] lg:text-[3.35rem]">
+                Tighter proof, lighter section.
+              </h2>
+              <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
+                Calm, polished service is the most repeated theme in client
+                feedback.
+              </p>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
+                4.9/5 average rating • 900+ premium appointments delivered
+              </p>
             </div>
-          </div>
-        </Container>
-      </section>
 
-      <section className="section-space overflow-hidden">
-        <Container>
-          <div className="overflow-hidden rounded-[3rem] border border-border/70 bg-[linear-gradient(135deg,rgba(232,210,203,0.38)_0%,rgba(255,252,248,0.92)_48%,rgba(244,236,228,0.9)_100%)] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
-            <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-              <div className="space-y-6">
-                <SectionHeading
-                  eyebrow="Client words"
-                  title="Testimonials now sit in their own calmer proof section."
-                  description="Client feedback stays specific, soft, and reassuring, reflecting the same calm confidence as the rest of the studio presentation."
+            <Carousel slideClassName="w-[88vw] sm:w-[22rem] lg:w-[23rem]">
+              {testimonials.map((testimonial) => (
+                <TestimonialCard
+                  key={testimonial.id}
+                  testimonial={testimonial}
                 />
-
-                <div className="rounded-[1.75rem] border border-border/70 bg-white/66 p-5 shadow-[0_16px_34px_rgba(86,64,54,0.06)]">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-muted">
-                    Review snapshot
-                  </p>
-                  <p className="mt-3 font-serif text-4xl leading-none text-ink-strong">
-                    4.9/5 average rating
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-muted">
-                    Clients usually mention how calm the appointment feels
-                    before they talk about the result, which is exactly what a
-                    soft luxury studio should deliver.
-                  </p>
-                </div>
-              </div>
-
-              <Carousel slideClassName="w-[90vw] sm:w-[24rem] lg:w-[25rem]">
-                {testimonials.map((testimonial) => (
-                  <TestimonialCard
-                    key={testimonial.id}
-                    testimonial={testimonial}
-                  />
-                ))}
-              </Carousel>
-            </div>
+              ))}
+            </Carousel>
           </div>
         </Container>
       </section>
 
       <section id="journal" className="section-space-tight">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
-            <article className="surface-card overflow-hidden rounded-[2.5rem] p-4 sm:p-6">
-              <MediaFrame
-                aspect="landscape"
-                title={featuredJournalPost.title}
-                subtitle={featuredJournalPost.excerpt}
-                label={featuredJournalPost.category}
-                tone={featuredJournalPost.imageTone}
-                className="min-h-[320px] rounded-[2rem]"
-              />
-              <div className="space-y-4 px-2 pb-2 pt-6">
-                <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-muted">
-                  <span>{featuredJournalPost.publishedAt}</span>
-                  <span className="h-1 w-1 rounded-full bg-border-strong" />
-                  <span>{featuredJournalPost.readTime}</span>
-                </div>
-                <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
-                  A featured article anchors the journal preview with practical,
-                  thoughtful guidance for women who want polished routines
-                  without added complexity.
-                </p>
-                <div>
-                  <Button
-                    href={`/journal/${featuredJournalPost.slug}`}
-                    variant="secondary"
-                  >
+          <div className="grid gap-8 lg:grid-cols-[1.06fr_0.94fr] lg:items-start">
+            <Link
+              href={`/journal/${featuredJournalPost.slug}`}
+              className="group block"
+            >
+              <article className="surface-card overflow-hidden rounded-[2.5rem] p-4 sm:p-5">
+                <MediaFrame
+                  aspect="landscape"
+                  title={featuredJournalPost.title}
+                  subtitle={featuredJournalPost.excerpt}
+                  label={featuredJournalPost.category}
+                  tone={featuredJournalPost.imageTone}
+                  image={featuredJournalPost.image}
+                  className="min-h-[320px] rounded-[2rem]"
+                  overlayClassName="max-w-[15rem] bg-white/56 p-3.5"
+                />
+                <div className="space-y-4 px-2 pb-2 pt-5">
+                  <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-muted">
+                    <span>{featuredJournalPost.publishedAt}</span>
+                    <span className="h-1 w-1 rounded-full bg-border-strong" />
+                    <span>{featuredJournalPost.readTime}</span>
+                  </div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-ink">
                     Read featured article
-                  </Button>
+                  </p>
                 </div>
+              </article>
+            </Link>
+
+            <div className="space-y-5">
+              <div className="max-w-xl space-y-4">
+                <Badge variant="outline">Beauty journal</Badge>
+                <h2 className="text-balance font-serif text-[2.2rem] leading-[0.98] text-ink-strong sm:text-[2.8rem] lg:text-[3.3rem]">
+                  A lighter editorial preview with less explanation.
+                </h2>
+                <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
+                  Practical beauty guidance should feel calm and easy to scan.
+                </p>
               </div>
-            </article>
 
-            <div className="space-y-6">
-              <SectionHeading
-                eyebrow="Beauty journal"
-                title="An editorial voice, trimmed to one feature and two follow-up reads."
-                description="The journal extends the brand beyond appointments, offering calm beauty guidance that feels useful, polished, and easy to return to."
-                action={
-                  <Button href="/journal" variant="secondary">
-                    Read the journal
-                  </Button>
-                }
-              />
-
-              <div className="grid gap-4">
-                {secondaryJournalPosts.map((post) => (
-                  <article
+              <div className="overflow-hidden rounded-[2rem] border border-border/70 bg-white/58">
+                {secondaryJournalPosts.map((post, index) => (
+                  <Link
                     key={post.slug}
-                    className="rounded-[2rem] border border-border/70 bg-white/60 p-5 shadow-[0_14px_30px_rgba(86,64,54,0.05)]"
+                    href={`/journal/${post.slug}`}
+                    className="group block px-5 py-4 transition-colors duration-300 hover:bg-white/76"
                   >
-                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-muted">
-                      <span>{post.category}</span>
-                      <span className="h-1 w-1 rounded-full bg-border-strong" />
-                      <span>{post.readTime}</span>
+                    <div
+                      className={
+                        index !== secondaryJournalPosts.length - 1
+                          ? "border-b border-border/70 pb-4"
+                          : ""
+                      }
+                    >
+                      <div className="flex flex-wrap items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted">
+                        <span>{post.category}</span>
+                        <span className="h-1 w-1 rounded-full bg-border-strong" />
+                        <span>{post.readTime}</span>
+                      </div>
+                      <h3 className="mt-3 font-serif text-[1.85rem] leading-[0.98] text-ink-strong transition-colors duration-300 group-hover:text-ink">
+                        {post.title}
+                      </h3>
                     </div>
-                    <h3 className="mt-3 font-serif text-[2rem] leading-[0.95] text-ink-strong">
-                      {post.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-muted">
-                      {post.excerpt}
-                    </p>
-                    <div className="mt-4">
-                      <Button href={`/journal/${post.slug}`} variant="ghost">
-                        Read article
-                      </Button>
-                    </div>
-                  </article>
+                  </Link>
                 ))}
+              </div>
+
+              <div>
+                <Button href="/journal" variant="secondary">
+                  Read the journal
+                </Button>
               </div>
             </div>
           </div>
