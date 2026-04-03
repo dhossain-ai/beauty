@@ -16,6 +16,7 @@ export function SpecialistCard({ specialist }: SpecialistCardProps) {
         subtitle={specialist.role}
         label="Resident specialist"
         tone={specialist.imageTone}
+        image={specialist.image}
         className="rounded-[1.75rem]"
       />
       <div className="space-y-5 px-2 pb-2 pt-6">

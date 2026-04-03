@@ -10,6 +10,16 @@ interface ComparisonSliderProps {
   afterTitle: string;
   beforeTone?: ImageTone;
   afterTone?: ImageTone;
+  beforeImage?: {
+    src: string;
+    alt: string;
+    position?: string;
+  };
+  afterImage?: {
+    src: string;
+    alt: string;
+    position?: string;
+  };
   className?: string;
 }
 
@@ -18,6 +28,8 @@ export function ComparisonSlider({
   afterTitle,
   beforeTone = "taupe",
   afterTone = "champagne",
+  beforeImage,
+  afterImage,
   className,
 }: ComparisonSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -80,6 +92,7 @@ export function ComparisonSlider({
         tone={afterTone}
         title={afterTitle}
         subtitle=""
+        image={afterImage}
         className="h-full w-full rounded-none"
         overlayClassName="opacity-0 md:opacity-100 right-4 left-auto text-right"
       />
@@ -94,6 +107,7 @@ export function ComparisonSlider({
             tone={beforeTone}
             title={beforeTitle}
             subtitle=""
+            image={beforeImage}
             className="h-full w-full rounded-none"
           />
         </div>

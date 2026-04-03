@@ -11,6 +11,7 @@ import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { blogPosts } from "@/data/blog-posts";
 import { galleryItems } from "@/data/gallery";
+import { beautyMedia } from "@/data/media";
 import { pricingSnippets } from "@/data/pricing";
 import { services } from "@/data/services";
 import { philosophyPillars, studioInfo, trustMetrics } from "@/data/site";
@@ -155,6 +156,8 @@ export function Homepage() {
                 title="Editorial calm, salon warmth"
                 subtitle="Soft morning light, warm textures, and a quiet consultation-first atmosphere shape every appointment."
                 tone="champagne"
+                image={beautyMedia.heroSpa}
+                priority
                 className="relative min-h-[520px] rounded-[2.75rem] sm:min-h-[620px]"
                 overlayClassName="max-w-[18rem] sm:max-w-[20rem]"
               />
@@ -380,6 +383,8 @@ export function Homepage() {
                     afterTitle="After 6 Weeks"
                     beforeTone="mocha"
                     afterTone="blush"
+                    beforeImage={beautyMedia.detailMaskProcess}
+                    afterImage={beautyMedia.portraitSofia}
                     className="h-full w-full"
                   />
                 </div>

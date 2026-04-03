@@ -2,6 +2,12 @@ export type ImageTone = "champagne" | "blush" | "taupe" | "mocha" | "pearl";
 
 export type MediaAspect = "hero" | "portrait" | "landscape" | "square";
 
+export interface MediaImage {
+  src: string;
+  alt: string;
+  position?: string;
+}
+
 export interface NavItem {
   label: string;
   href: string;
@@ -26,6 +32,7 @@ export interface Service {
   priceFrom: string;
   highlight: string;
   imageTone: ImageTone;
+  image?: MediaImage;
   // Detail page additions
   overview?: string;
   benefits?: string[];
@@ -41,10 +48,16 @@ export interface Specialist {
   quote: string;
   specialties: string[];
   imageTone: ImageTone;
+  image?: MediaImage;
   // Detail page additions
   bio?: string;
   signatureServices?: string[]; // service slugs
-  recentWorkImages?: Array<{ title: string; aspect: MediaAspect; tone: ImageTone }>;
+  recentWorkImages?: Array<{
+    title: string;
+    aspect: MediaAspect;
+    tone: ImageTone;
+    image?: MediaImage;
+  }>;
 }
 
 export interface Testimonial {
@@ -62,6 +75,7 @@ export interface GalleryItem {
   service: string;
   imageTone: ImageTone;
   aspect: Extract<MediaAspect, "portrait" | "landscape" | "square">;
+  image?: MediaImage;
 }
 
 export interface BlogPost {
@@ -72,6 +86,7 @@ export interface BlogPost {
   publishedAt: string;
   readTime: string;
   imageTone: ImageTone;
+  image?: MediaImage;
   // Detail page additions
   content?: string;
   contentBlocks?: Array<{

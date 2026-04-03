@@ -59,6 +59,7 @@ export default async function SpecialistDetailPage({
                 subtitle="Resident specialist"
                 label="Artist portrait"
                 tone={specialist.imageTone}
+                image={specialist.image}
                 className="h-full w-full"
               />
             </div>
@@ -150,6 +151,7 @@ export default async function SpecialistDetailPage({
                   title={image.title}
                   subtitle="Portfolio match"
                   label="Specialist portfolio"
+                  image={image.image}
                   className="w-full"
                 />
               ))}
