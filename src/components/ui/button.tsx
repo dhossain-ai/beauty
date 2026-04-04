@@ -14,7 +14,7 @@ type ButtonProps = SharedProps & ComponentPropsWithoutRef<"button">;
 type ButtonLinkProps = SharedProps & { href: string };
 
 const baseStyles =
-  "inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold tracking-[0.02em] transition-[transform,background-color,border-color,color,box-shadow] duration-500 ease-out touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong/65 focus-visible:ring-offset-2 focus-visible:ring-offset-shell-soft active:translate-y-px disabled:pointer-events-none disabled:opacity-60";
+  "inline-flex max-w-full select-none items-center justify-center gap-2 rounded-full text-center text-sm font-semibold leading-5 tracking-[0.02em] whitespace-normal transition-[transform,background-color,border-color,color,box-shadow] duration-500 ease-out touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong/65 focus-visible:ring-offset-2 focus-visible:ring-offset-shell-soft active:translate-y-px disabled:pointer-events-none disabled:opacity-60 sm:whitespace-nowrap";
 
 const variants = {
   primary:
@@ -26,8 +26,8 @@ const variants = {
 };
 
 const sizes = {
-  md: "min-h-11 px-5 py-3",
-  lg: "min-h-12 px-6 py-3.5",
+  md: "min-h-11 px-4 py-3 sm:px-5",
+  lg: "min-h-12 px-5 py-3.5 sm:px-6",
 };
 
 function getClassName({

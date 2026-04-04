@@ -7,20 +7,20 @@ export function SiteFooter() {
   return (
     <footer className="section-space-tight border-t border-white/70">
       <Container>
-        <div className="surface-panel rounded-[2.5rem] px-6 py-8 sm:px-8 sm:py-10 lg:px-10">
-          <div className="grid gap-10 xl:grid-cols-[1.05fr_0.95fr]">
+        <div className="surface-panel rounded-[2.25rem] px-5 py-8 sm:px-8 sm:py-10 lg:px-10">
+          <div className="grid gap-8 sm:gap-10 xl:grid-cols-[1.05fr_0.95fr]">
             <div className="space-y-6">
               <div>
                 <p className="font-serif text-4xl leading-none text-ink-strong">
                   {studioInfo.shortName}
                 </p>
-                <p className="mt-3 max-w-lg text-base leading-8 text-muted">
+                <p className="mt-3 max-w-xl text-base leading-7 text-muted sm:leading-8">
                   {studioInfo.tagline} Calm appointments, tailored treatment
                   plans, and refined results are at the heart of every visit to
                   the studio.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Button href="/contact">Book consultation</Button>
                 <Button href="/journal" variant="secondary">
                   Read the journal
@@ -50,7 +50,7 @@ export function SiteFooter() {
                 <p className="text-sm font-semibold uppercase tracking-[0.26em] text-muted">
                   Contact
                 </p>
-                <div className="mt-4 space-y-3 text-sm leading-7 text-ink">
+                <div className="mt-4 space-y-3 break-words text-sm leading-7 text-ink">
                   <p>{studioInfo.phone}</p>
                   <p>{studioInfo.email}</p>
                   <p>{studioInfo.addressLines.join(", ")}</p>
@@ -74,7 +74,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col gap-4 border-t border-border/70 pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-10 flex flex-col gap-3 border-t border-border/70 pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:gap-4">
             <p>© 2026 {studioInfo.shortName}. Soft luxury beauty rituals in Vilnius.</p>
             <div className="flex flex-wrap gap-4">
               {studioInfo.socialLinks.map((link) => (

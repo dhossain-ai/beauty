@@ -29,18 +29,18 @@ export function PageIntro({
       <Container>
         <div
           className={cn(
-            "space-y-7",
+            "space-y-6 sm:space-y-7",
             isCentered && "mx-auto max-w-4xl text-center",
           )}
         >
           <Badge>{eyebrow}</Badge>
           <div className={cn("space-y-5", isCentered && "mx-auto max-w-3xl")}>
-            <h1 className="text-balance font-serif text-[3rem] leading-[0.92] text-ink-strong sm:text-[4.4rem] lg:text-[5.35rem]">
+            <h1 className="page-title text-balance font-serif text-ink-strong">
               {title}
             </h1>
             <p
               className={cn(
-                "text-base leading-8 text-muted sm:text-lg sm:leading-9 lg:text-xl",
+                "max-w-[42rem] text-base leading-7 text-muted sm:text-lg sm:leading-8 lg:text-xl lg:leading-9",
                 isCentered && "mx-auto max-w-2xl",
                 bodyClassName,
               )}

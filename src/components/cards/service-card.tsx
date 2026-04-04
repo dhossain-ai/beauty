@@ -25,12 +25,12 @@ export function ServiceCard({ service }: ServiceCardProps) {
           <span className="text-sm font-medium text-muted">{service.duration}</span>
         </div>
         <div className="space-y-3">
-          <h3 className="font-serif text-[2rem] leading-[0.95] text-ink-strong transition-colors duration-300 group-hover:text-ink">
+          <h3 className="card-title font-serif text-ink-strong transition-colors duration-300 group-hover:text-ink">
             {service.title}
           </h3>
           <p className="text-sm leading-7 text-muted">{service.excerpt}</p>
         </div>
-        <div className="mt-auto flex items-center justify-between gap-4 border-t border-border/70 pt-5">
+        <div className="mt-auto flex flex-col gap-4 border-t border-border/70 pt-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.24em] text-muted">
               Investment
@@ -39,7 +39,12 @@ export function ServiceCard({ service }: ServiceCardProps) {
               {service.priceFrom}
             </p>
           </div>
-          <Button href={`/services/${service.slug}`} size="md" variant="secondary">
+          <Button
+            href={`/services/${service.slug}`}
+            size="md"
+            variant="secondary"
+            className="w-full sm:w-auto"
+          >
             View Details
           </Button>
         </div>

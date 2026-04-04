@@ -24,7 +24,7 @@ export function SpecialistCard({ specialist }: SpecialistCardProps) {
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
             {specialist.experience}
           </p>
-          <h3 className="font-serif text-[2rem] leading-[0.95] text-ink-strong transition-colors duration-300 group-hover:text-ink">
+          <h3 className="card-title font-serif text-ink-strong transition-colors duration-300 group-hover:text-ink">
             {specialist.name}
           </h3>
           <p className="text-sm leading-7 text-muted">{specialist.role}</p>

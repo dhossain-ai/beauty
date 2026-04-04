@@ -13,20 +13,24 @@ export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 pt-3 sm:pt-4">
+    <header className="sticky top-0 z-50 pt-2.5 sm:pt-4">
       <Container>
-        <div className="surface-panel rounded-[2rem] px-4 py-3 shadow-[0_22px_50px_rgba(86,64,54,0.11)] sm:rounded-full sm:px-5">
-          <div className="flex items-center justify-between gap-4">
-            <Link href="/" className="min-w-0" onClick={() => setIsOpen(false)}>
-              <span className="block truncate font-serif text-3xl leading-none text-ink-strong">
+        <div className="surface-panel rounded-[1.75rem] px-3.5 py-3 shadow-[0_22px_50px_rgba(86,64,54,0.11)] sm:rounded-full sm:px-5">
+          <div className="flex items-center justify-between gap-3 sm:gap-4">
+            <Link
+              href="/"
+              className="min-w-0 max-w-[11.5rem] sm:max-w-none"
+              onClick={() => setIsOpen(false)}
+            >
+              <span className="block truncate font-serif text-[1.9rem] leading-none text-ink-strong sm:text-3xl">
                 {studioInfo.shortName}
               </span>
-              <span className="mt-1 block text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-muted">
+              <span className="mt-1 block max-w-[11.5rem] text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-muted sm:max-w-none sm:text-[0.65rem] sm:tracking-[0.28em]">
                 Soft luxury beauty studio
               </span>
             </Link>
 
-            <nav className="hidden items-center gap-7 lg:flex">
+            <nav className="hidden items-center gap-5 xl:gap-7 lg:flex">
               {navigation.map((item) => (
                 <Link
                   key={item.href}
@@ -82,7 +86,7 @@ export function SiteHeader() {
           <div
             className={cn(
               "overflow-hidden transition-[max-height,opacity,margin] duration-300 lg:hidden",
-              isOpen ? "mt-4 max-h-[32rem] opacity-100" : "max-h-0 opacity-0",
+              isOpen ? "mt-3 max-h-[32rem] opacity-100 sm:mt-4" : "max-h-0 opacity-0",
             )}
           >
             <nav className="flex flex-col gap-2 rounded-[1.5rem] border border-border/70 bg-white/75 p-3 shadow-[0_22px_42px_rgba(69,54,48,0.08)]">

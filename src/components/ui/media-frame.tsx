@@ -24,9 +24,9 @@ const toneClasses: Record<ImageTone, string> = {
 };
 
 const aspectClasses: Record<MediaAspect, string> = {
-  hero: "aspect-[4/5] md:aspect-[5/6]",
+  hero: "aspect-[4/5] sm:aspect-[5/6]",
   portrait: "aspect-[4/5]",
-  landscape: "aspect-[4/3]",
+  landscape: "aspect-[5/4] sm:aspect-[4/3]",
   square: "aspect-square",
 };
 
@@ -45,7 +45,7 @@ export function MediaFrame({
   return (
     <div
       className={cn(
-        "group relative isolate overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_28px_70px_rgba(86,64,54,0.14)]",
+        "group relative isolate min-w-0 overflow-hidden rounded-[1.8rem] border border-white/70 shadow-[0_28px_70px_rgba(86,64,54,0.14)] sm:rounded-[2rem]",
         aspectClasses[aspect],
         className,
       )}
@@ -85,18 +85,18 @@ export function MediaFrame({
       )}
       <div
         className={cn(
-          "absolute inset-x-4 bottom-4 rounded-[1.5rem] border border-white/60 bg-white/68 p-4 backdrop-blur-md transition-transform duration-500 ease-out group-hover:translate-y-[-0.2rem] sm:inset-x-5 sm:bottom-5 sm:p-5",
+          "absolute inset-x-3 bottom-3 rounded-[1.25rem] border border-white/60 bg-white/68 p-3.5 backdrop-blur-md transition-transform duration-500 ease-out group-hover:translate-y-[-0.2rem] sm:inset-x-5 sm:bottom-5 sm:rounded-[1.5rem] sm:p-5",
           overlayClassName,
         )}
       >
-        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-muted">
+        <p className="text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-muted sm:text-[0.7rem] sm:tracking-[0.28em]">
           {label}
         </p>
-        <h3 className="mt-2 font-serif text-2xl leading-none text-ink-strong sm:text-3xl">
+        <h3 className="mt-2 font-serif text-[1.45rem] leading-[0.95] text-ink-strong sm:text-3xl">
           {title}
         </h3>
         {subtitle ? (
-          <p className="mt-2 max-w-xs text-sm leading-6 text-muted">{subtitle}</p>
+          <p className="mt-2 max-w-sm text-sm leading-6 text-muted">{subtitle}</p>
         ) : null}
       </div>
     </div>

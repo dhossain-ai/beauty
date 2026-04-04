@@ -25,13 +25,17 @@ export function BlogCard({ post }: BlogCardProps) {
           <span>{post.readTime}</span>
         </div>
         <div className="space-y-3">
-          <h3 className="font-serif text-[2rem] leading-[0.95] text-ink-strong transition-colors duration-300 group-hover:text-ink">
+          <h3 className="card-title font-serif text-ink-strong transition-colors duration-300 group-hover:text-ink">
             {post.title}
           </h3>
           <p className="text-sm leading-7 text-muted">{post.excerpt}</p>
         </div>
         <div className="mt-auto pt-2">
-          <Button href={`/journal/${post.slug}`} variant="ghost">
+          <Button
+            href={`/journal/${post.slug}`}
+            variant="ghost"
+            className="w-full sm:w-auto"
+          >
             Read article
           </Button>
         </div>

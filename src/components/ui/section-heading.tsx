@@ -24,17 +24,17 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "flex flex-col gap-5 sm:gap-6",
+        "flex flex-col gap-4 sm:gap-6",
         isCentered && "items-center text-center",
         className,
       )}
     >
       <Badge variant="outline">{eyebrow}</Badge>
       <div className={cn("max-w-2xl space-y-4", isCentered && "mx-auto")}>
-        <h2 className="text-balance font-serif text-[2.6rem] leading-[0.94] text-ink-strong sm:text-[3.35rem] lg:text-[4.35rem]">
+        <h2 className="section-title text-balance font-serif text-ink-strong">
           {title}
         </h2>
-        <p className="text-base leading-8 text-muted sm:text-lg sm:leading-9">
+        <p className="max-w-[44rem] text-base leading-7 text-muted sm:text-lg sm:leading-8 lg:leading-9">
           {description}
         </p>
       </div>
