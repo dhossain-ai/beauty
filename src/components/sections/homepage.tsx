@@ -18,22 +18,19 @@ import { getHomepageContent } from "@/data/homepage";
 import { beautyMedia } from "@/data/media";
 import { services } from "@/data/services";
 import { specialists } from "@/data/specialists";
-import { testimonials } from "@/data/testimonials";
 
 const serviceMap = new Map(services.map((service) => [service.slug, service]));
-const featuredSpecialists = specialists.slice(0, 3);
+const specialistMap = new Map(
+  specialists.map((specialist) => [specialist.slug, specialist]),
+);
+const galleryItemMap = new Map(galleryItems.map((item) => [item.slug, item]));
 const featuredJournalPost = blogPosts[0]!;
 const secondaryJournalPosts = blogPosts.slice(1, 3);
-const resultPreviewItem = galleryItems[2]!;
-const resultHighlights = [
-  { label: "Texture", value: "Smoother, brighter finish" },
-  { label: "Definition", value: "Brows and lashes stay soft" },
-  { label: "Maintenance", value: "Built for real routines" },
-];
 
 export function Homepage() {
   const { locale } = useSiteLanguage();
   const homepageContent = getHomepageContent(locale);
+  const resultPreviewItem = galleryItemMap.get(homepageContent.results.preview.slug);
 
   return (
     <>
@@ -243,68 +240,74 @@ export function Homepage() {
           <div className="space-y-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl space-y-4">
-                <Badge variant="outline">Studio specialists</Badge>
+                <Badge variant="outline">{homepageContent.specialists.badge}</Badge>
                 <h2 className="section-title text-balance font-serif text-ink-strong">
-                  Distinct specialties, lighter presentation, stronger portrait
-                  presence.
+                  {homepageContent.specialists.title}
                 </h2>
                 <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
-                  Each specialist is introduced with just enough context to make
-                  booking feel clear and personal.
+                  {homepageContent.specialists.description}
                 </p>
               </div>
 
               <Button href="/specialists" variant="secondary">
-                Meet all specialists
+                {homepageContent.specialists.ctaLabel}
               </Button>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {featuredSpecialists.map((specialist) => (
-                <article key={specialist.slug} className="group flex h-full flex-col">
-                  <MediaFrame
-                    aspect="portrait"
-                    title={specialist.name}
-                    subtitle=""
-                    label={specialist.specialties[0] ?? "Resident specialist"}
-                    tone={specialist.imageTone}
-                    image={specialist.image}
-                    className="rounded-[2rem]"
-                    overlayClassName="max-w-[10rem] border-white/55 bg-white/48 p-3 sm:max-w-[11rem] sm:p-3.5"
-                  />
+              {homepageContent.specialists.cards.map((specialistCard) => {
+                const specialist = specialistMap.get(specialistCard.slug);
 
-                  <div className="flex flex-1 flex-col space-y-4 px-1 pb-1 pt-4">
-                    <div className="space-y-2">
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
-                        {specialist.experience}
-                      </p>
-                      <p className="text-sm leading-6 text-muted">
-                        {specialist.role}
-                      </p>
-                    </div>
+                if (!specialist) {
+                  return null;
+                }
 
-                    <div className="flex flex-wrap gap-2">
-                      {specialist.specialties.slice(0, 2).map((specialty) => (
-                        <span
-                          key={specialty}
-                          className="rounded-full border border-border/70 bg-white/72 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-ink"
-                        >
-                          {specialty}
-                        </span>
-                      ))}
-                    </div>
+                return (
+                  <article
+                    key={specialist.slug}
+                    className="group flex h-full flex-col"
+                  >
+                    <MediaFrame
+                      aspect="portrait"
+                      title={specialist.name}
+                      subtitle=""
+                      label={specialistCard.specialties[0] ?? specialist.name}
+                      tone={specialist.imageTone}
+                      image={specialist.image}
+                      className="rounded-[2rem]"
+                      overlayClassName="max-w-[10.75rem] border-white/55 bg-white/48 p-3 sm:max-w-[11.5rem] sm:p-3.5"
+                    />
 
-                    <div className="mt-auto border-t border-border/70 pt-4">
-                      <Button
-                        href={`/specialists/${specialist.slug}`}
-                        variant="ghost"
-                      >
-                        View profile
-                      </Button>
+                    <div className="flex flex-1 flex-col space-y-4 px-1 pb-1 pt-4">
+                      <div className="space-y-2">
+                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted">
+                          {specialistCard.experience}
+                        </p>
+                        <p className="text-sm leading-6 text-muted">
+                          {specialistCard.role}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2">
+                        {specialistCard.specialties.map((specialty) => (
+                          <span
+                            key={specialty}
+                            className="rounded-full border border-border/70 bg-white/72 px-3 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-ink"
+                          >
+                            {specialty}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="mt-auto border-t border-border/70 pt-4">
+                        <Button href={`/specialists/${specialist.slug}`} variant="ghost">
+                          {locale === "lt" ? "Plačiau" : "Profile"}
+                        </Button>
+                      </div>
                     </div>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                );
+              })}
             </div>
           </div>
         </Container>
@@ -317,19 +320,18 @@ export function Homepage() {
               <div className="space-y-6">
                 <div className="space-y-4">
                   <p className="text-sm font-semibold uppercase tracking-[0.28em] text-white/68">
-                    Results preview
+                    {locale === "lt" ? "Rezultatų apžvalga" : "Results preview"}
                   </p>
                   <h2 className="section-title text-balance font-serif text-white">
-                    Results stay soft, but the difference still reads clearly.
+                    {homepageContent.results.title}
                   </h2>
                   <p className="max-w-2xl text-sm leading-7 text-white/72 sm:text-base sm:leading-8">
-                    Smoother texture, calmer skin, and softly structured detail
-                    remain the strongest proof point on the page.
+                    {homepageContent.results.description}
                   </p>
                 </div>
 
                 <div className="grid gap-3 sm:grid-cols-3">
-                  {resultHighlights.map((item) => (
+                  {homepageContent.results.highlights.map((item) => (
                     <div
                       key={item.label}
                       className="rounded-[1.4rem] border border-white/12 bg-white/8 p-4 backdrop-blur-sm"
@@ -346,8 +348,8 @@ export function Homepage() {
 
                 <div className="relative h-[20rem] w-full overflow-hidden rounded-[2.5rem] bg-shell-soft sm:h-[27rem] lg:h-[29rem]">
                   <ComparisonSlider
-                    beforeTitle="Before Treatment"
-                    afterTitle="After 6 Weeks"
+                    beforeTitle={homepageContent.results.comparisonBeforeTitle}
+                    afterTitle={homepageContent.results.comparisonAfterTitle}
                     beforeTone="mocha"
                     afterTone="blush"
                     beforeImage={beautyMedia.detailMaskProcess}
@@ -358,39 +360,37 @@ export function Homepage() {
               </div>
 
               <div className="space-y-4">
-                <MediaFrame
-                  aspect={resultPreviewItem.aspect}
-                  title={resultPreviewItem.title}
-                  subtitle={resultPreviewItem.service}
-                  tone={resultPreviewItem.imageTone}
-                  image={resultPreviewItem.image}
-                  className="min-h-[280px]"
-                  overlayClassName="max-w-[12rem] bg-white/52 p-3.5"
-                />
+                {resultPreviewItem ? (
+                  <MediaFrame
+                    aspect={resultPreviewItem.aspect}
+                    title={homepageContent.results.preview.title}
+                    subtitle={homepageContent.results.preview.subtitle}
+                    label={homepageContent.results.preview.label}
+                    tone={resultPreviewItem.imageTone}
+                    image={resultPreviewItem.image}
+                    className="min-h-[280px]"
+                    overlayClassName="max-w-[12rem] bg-white/52 p-3.5"
+                  />
+                ) : null}
 
                 <div className="rounded-[2rem] border border-white/12 bg-white/8 p-5 backdrop-blur-sm">
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-white/58">
-                    Treatment focus
+                    {homepageContent.results.focusLabel}
                   </p>
                   <div className="mt-4 space-y-4 text-sm text-white/74">
-                    <div className="flex flex-col gap-1.5 border-b border-white/12 pb-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                      <span>Target</span>
-                      <span className="text-right text-white">
-                        Skin texture and hydration
-                      </span>
-                    </div>
-                    <div className="flex flex-col gap-1.5 border-b border-white/12 pb-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                      <span>Protocol</span>
-                      <span className="text-right text-white">
-                        Cellular Renewal Peel
-                      </span>
-                    </div>
-                    <div className="flex flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                      <span>Timeline</span>
-                      <span className="text-right text-white">
-                        3 sessions over 6 weeks
-                      </span>
-                    </div>
+                    {homepageContent.results.focusRows.map((row, index) => (
+                      <div
+                        key={row.label}
+                        className={
+                          index !== homepageContent.results.focusRows.length - 1
+                            ? "flex flex-col gap-1.5 border-b border-white/12 pb-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
+                            : "flex flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
+                        }
+                      >
+                        <span>{row.label}</span>
+                        <span className="text-right text-white">{row.value}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -403,21 +403,20 @@ export function Homepage() {
         <Container>
           <div className="grid gap-6 lg:grid-cols-[0.58fr_1.42fr] lg:items-end">
             <div className="max-w-md space-y-4">
-              <Badge variant="outline">Client words</Badge>
+              <Badge variant="outline">{homepageContent.testimonials.badge}</Badge>
               <h2 className="section-title text-balance font-serif text-ink-strong">
-                Tighter proof, lighter section.
+                {homepageContent.testimonials.title}
               </h2>
               <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
-                Calm, polished service is the most repeated theme in client
-                feedback.
+                {homepageContent.testimonials.description}
               </p>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
-                4.9/5 average rating • 900+ premium appointments delivered
+                {homepageContent.testimonials.meta}
               </p>
             </div>
 
             <Carousel slideClassName="w-[84vw] sm:w-[21rem] md:w-[22rem] xl:w-[23rem]">
-              {testimonials.map((testimonial) => (
+              {homepageContent.testimonials.items.map((testimonial) => (
                 <TestimonialCard
                   key={testimonial.id}
                   testimonial={testimonial}

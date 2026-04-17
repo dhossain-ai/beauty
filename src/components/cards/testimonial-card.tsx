@@ -18,7 +18,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
           {"★".repeat(testimonial.rating)}
         </p>
       </div>
-      <p className="mt-5 font-serif text-[1.7rem] leading-[1.08] text-ink-strong sm:text-[2.05rem] lg:text-[2.3rem]">
+      <p className="mt-5 font-serif text-[1.52rem] leading-[1.12] text-ink-strong sm:text-[1.82rem] lg:text-[2.05rem]">
         “{testimonial.quote}”
       </p>
       <div className="mt-auto border-t border-border/70 pt-5">
