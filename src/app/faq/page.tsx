@@ -3,10 +3,11 @@ import { CtaBlock } from "@/components/sections/cta-block";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { PageIntro } from "@/components/ui/page-intro";
+import { pageTitle, siteName } from "@/lib/seo";
 
 export const metadata = {
-  title: "FAQ | Maison de Lueur",
-  description: "Read common questions about appointments, treatment prep, aftercare, and the Maison de Lueur studio experience.",
+  title: pageTitle("FAQ"),
+  description: `Read common questions about appointments, treatment prep, aftercare, and the ${siteName} studio experience.`,
 };
 
 export default function FaqPage() {

@@ -1,12 +1,19 @@
+import { defaultLocale, getSiteContent } from "@/data/site";
+
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";
 
-export const siteName = "Maison de Lueur";
+const defaultSiteContent = getSiteContent(defaultLocale);
 
-export const siteTitle = "Maison de Lueur | Soft Luxury Beauty Studio";
+export const siteName = defaultSiteContent.studioInfo.name;
 
-export const siteDescription =
-  "A premium beauty studio website with signature treatments, refined specialists, an editorial journal, and a calm soft luxury presentation.";
+export const siteTitle = defaultSiteContent.seo.title;
+
+export const siteDescription = defaultSiteContent.seo.description;
+
+export function pageTitle(title: string) {
+  return `${title} | ${siteName}`;
+}
 
 export function absoluteUrl(path = "/") {
   return new URL(path, siteUrl).toString();

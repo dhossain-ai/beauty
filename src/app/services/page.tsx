@@ -3,10 +3,11 @@ import { ServiceCard } from "@/components/cards/service-card";
 import { CtaBlock } from "@/components/sections/cta-block";
 import { Container } from "@/components/ui/container";
 import { PageIntro } from "@/components/ui/page-intro";
+import { pageTitle, siteName } from "@/lib/seo";
 
 export const metadata = {
-  title: "Services | Maison de Lueur",
-  description: "Explore Maison de Lueur signature services, from skin rituals to brow and lash refinement.",
+  title: pageTitle("Services"),
+  description: `Explore ${siteName} signature services, from skin rituals to brow and lash refinement.`,
 };
 
 export default function ServicesPage() {

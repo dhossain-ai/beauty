@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { pageTitle } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -27,7 +28,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${service.title} | Maison de Lueur`,
+    title: pageTitle(service.title),
     description: service.excerpt,
   };
 }

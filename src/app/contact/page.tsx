@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { PageIntro } from "@/components/ui/page-intro";
+import { pageTitle, siteName } from "@/lib/seo";
 
 export const metadata = {
-  title: "Contact | Maison de Lueur",
-  description: "Get in touch with Maison de Lueur to request a consultation, ask a question, or plan your next studio visit.",
+  title: pageTitle("Contact"),
+  description: `Get in touch with ${siteName} to request a consultation, ask a question, or plan your next studio visit.`,
 };
 
 export default function ContactPage() {
@@ -173,7 +174,7 @@ export default function ContactPage() {
                   className="h-full w-full"
                   title="Studio entrance"
                   subtitle="A quiet arrival, just off the avenue."
-                  label="Visit Maison de Lueur"
+                  label={studioInfo.name}
                 />
               </div>
             </div>

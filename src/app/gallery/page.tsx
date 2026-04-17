@@ -3,10 +3,11 @@ import { CtaBlock } from "@/components/sections/cta-block";
 import { Container } from "@/components/ui/container";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { PageIntro } from "@/components/ui/page-intro";
+import { pageTitle, siteName } from "@/lib/seo";
 
 export const metadata = {
-  title: "Gallery | Maison de Lueur",
-  description: "Browse the Maison de Lueur gallery for client results, studio atmosphere, and softly curated beauty imagery.",
+  title: pageTitle("Gallery"),
+  description: `Browse the ${siteName} gallery for client results, studio atmosphere, and softly curated beauty imagery.`,
 };
 
 export default function GalleryPage() {

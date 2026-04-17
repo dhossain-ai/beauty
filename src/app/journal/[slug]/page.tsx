@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { CtaBlock } from "@/components/sections/cta-block";
 import { Container } from "@/components/ui/container";
 import { MediaFrame } from "@/components/ui/media-frame";
+import { pageTitle } from "@/lib/seo";
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -22,7 +23,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${post.title} | Maison de Lueur`,
+    title: pageTitle(post.title),
     description: post.excerpt,
   };
 }

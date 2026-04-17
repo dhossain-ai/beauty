@@ -44,18 +44,18 @@ export default function OpenGraphImage() {
               textTransform: "uppercase",
             }}
           >
-            Soft Luxury Beauty Studio
+            Grožio studija
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
             <div
               style={{
                 display: "flex",
                 fontFamily: "Georgia, serif",
-                fontSize: 94,
+                fontSize: 98,
                 lineHeight: 0.92,
               }}
             >
-              Maison de Lueur
+              Lauryta
             </div>
             <div
               style={{
@@ -66,8 +66,8 @@ export default function OpenGraphImage() {
                 maxWidth: "760px",
               }}
             >
-              A premium beauty studio website concept with refined treatments,
-              editorial rhythm, and a calm portfolio-ready presentation.
+              Rami, premium grožio studija Vilniuje su estetinėmis procedūromis,
+              aiškiu registracijos keliu ir švelnios prabangos atmosfera.
             </div>
           </div>
           <div
@@ -77,7 +77,7 @@ export default function OpenGraphImage() {
               fontSize: 28,
             }}
           >
-            Signature services • Specialists • Gallery • Journal
+            Paslaugos • Specialistės • Kainos • Kontaktai
           </div>
         </div>
       </div>

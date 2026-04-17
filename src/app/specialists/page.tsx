@@ -3,10 +3,11 @@ import { SpecialistCard } from "@/components/cards/specialist-card";
 import { CtaBlock } from "@/components/sections/cta-block";
 import { Container } from "@/components/ui/container";
 import { PageIntro } from "@/components/ui/page-intro";
+import { pageTitle, siteName } from "@/lib/seo";
 
 export const metadata = {
-  title: "Specialists | Maison de Lueur",
-  description: "Meet the Maison de Lueur specialists behind the studio's calm, polished beauty rituals.",
+  title: pageTitle("Specialists"),
+  description: `Meet the ${siteName} specialists behind the studio's calm, polished beauty rituals.`,
 };
 
 export default function SpecialistsPage() {
@@ -15,7 +16,7 @@ export default function SpecialistsPage() {
       <PageIntro
         eyebrow="Our team"
         title="Studio specialists"
-        description="Meet the resident artists shaping the Maison de Lueur experience, each focused on natural-looking results and an unhurried client rhythm."
+        description="Meet the resident artists shaping the Lauryta experience, each focused on natural-looking results and an unhurried client rhythm."
       />
 
       <section className="section-space pt-0">

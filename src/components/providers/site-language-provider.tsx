@@ -12,7 +12,6 @@ import {
   defaultLocale,
   getNavigation,
   getSiteContent,
-  isLocale,
   type SiteContent,
 } from "@/data/site";
 import type { Locale, NavItem, StudioInfo } from "@/lib/types";
@@ -37,14 +36,6 @@ export function SiteLanguageProvider({
   children,
 }: SiteLanguageProviderProps) {
   const [locale, setLocale] = useState<Locale>(defaultLocale);
-
-  useEffect(() => {
-    const storedLocale = window.localStorage.getItem(STORAGE_KEY);
-
-    if (storedLocale && isLocale(storedLocale)) {
-      setLocale(storedLocale);
-    }
-  }, []);
 
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, locale);

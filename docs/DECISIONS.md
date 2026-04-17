@@ -124,3 +124,6 @@ Phase R2D: Responsive hardening should be handled through shared primitives firs
 
 ### D38
 Phase R2D: Multi-column and sticky detail-page layouts should relax earlier on tablet and small-laptop widths, favoring cleaner stacking and safer content flow over rigid desktop compositions.
+
+### D39
+Client Adaptation Phase 1: The LT/EN foundation should use a lightweight hardcoded locale layer plus a small client-side language provider in the shared shell, avoiding a larger i18n dependency until more of the page content actually needs bilingual switching.

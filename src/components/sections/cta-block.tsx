@@ -1,3 +1,6 @@
+"use client";
+
+import { useSiteLanguage } from "@/components/providers/site-language-provider";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 
@@ -18,10 +21,15 @@ export function CtaBlock({
   title,
   description,
   primaryHref = "/services",
-  primaryLabel = "Explore signature services",
+  primaryLabel,
   secondaryHref = "/contact",
-  secondaryLabel = "Start a consultation",
+  secondaryLabel,
 }: CtaBlockProps) {
+  const { siteContent } = useSiteLanguage();
+  const resolvedPrimaryLabel = primaryLabel ?? siteContent.cta.exploreServices;
+  const resolvedSecondaryLabel =
+    secondaryLabel ?? siteContent.cta.startConsultation;
+
   return (
     <section id={id} className="section-space">
       <Container>
@@ -44,7 +52,7 @@ export function CtaBlock({
             <div className="relative rounded-[2rem] border border-white/78 bg-white/74 p-4 shadow-[0_22px_48px_rgba(86,64,54,0.1)] backdrop-blur-md sm:p-5 lg:w-full lg:max-w-[20rem] lg:justify-self-end">
               <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-1">
                 <Button href={primaryHref} size="lg" fullWidth>
-                  {primaryLabel}
+                  {resolvedPrimaryLabel}
                 </Button>
                 <Button
                   href={secondaryHref}
@@ -52,7 +60,7 @@ export function CtaBlock({
                   variant="secondary"
                   fullWidth
                 >
-                  {secondaryLabel}
+                  {resolvedSecondaryLabel}
                 </Button>
               </div>
             </div>

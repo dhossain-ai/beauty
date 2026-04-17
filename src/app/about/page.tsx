@@ -4,10 +4,11 @@ import { Container } from "@/components/ui/container";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { PageIntro } from "@/components/ui/page-intro";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { pageTitle, siteName } from "@/lib/seo";
 
 export const metadata = {
-  title: "About | Maison de Lueur",
-  description: "Discover the studio philosophy, calm environment, and soft luxury approach behind Maison de Lueur.",
+  title: pageTitle("About"),
+  description: `Discover the studio philosophy, calm environment, and soft luxury approach behind ${siteName}.`,
 };
 
 export default function AboutPage() {

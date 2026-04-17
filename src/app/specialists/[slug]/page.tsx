@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { pageTitle } from "@/lib/seo";
 
 export function generateStaticParams() {
   return specialists.map((specialist) => ({ slug: specialist.slug }));
@@ -26,7 +27,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${specialist.name} | Maison de Lueur`,
+    title: pageTitle(specialist.name),
     description: specialist.role,
   };
 }

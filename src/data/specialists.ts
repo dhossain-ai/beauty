@@ -12,7 +12,7 @@ export const specialists: Specialist[] = [
     specialties: ["Hydration facials", "Bridal prep", "Skin mapping"],
     imageTone: "champagne",
     image: beautyMedia.portraitAmelia,
-    bio: "Amelia founded Maison de Lueur with a simple belief: beauty treatments should feel restorative, not transactional. With over a decade of experience spanning high-end clinical esthetics and holistic spa environments across Europe, she developed the studio's signature rituals to bridge the gap between effective, results-driven skin care and deeply relaxing, tension-melting touch. Her focus is always on the 'slow beauty' movement.",
+    bio: "Amelia founded Grožio studija Lauryta with a simple belief: beauty treatments should feel restorative, not transactional. With over a decade of experience spanning high-end clinical esthetics and holistic spa environments across Europe, she developed the studio's signature rituals to bridge the gap between effective, results-driven skin care and deeply relaxing, tension-melting touch. Her focus is always on the 'slow beauty' movement.",
     signatureServices: ["radiance-facial", "bridal-preview-glow", "restorative-massage"],
     recentWorkImages: [
       {

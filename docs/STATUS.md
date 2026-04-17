@@ -1,7 +1,7 @@
 # STATUS
 
 ## Current Direction
-Chosen concept: Soft Luxury Beauty Studio
+Chosen concept: Soft Luxury Beauty Studio adapted toward a real local client-facing salon brand.
 
 ## Current Scope
 Frontend-only premium beauty salon / beauty studio website with hardcoded content.
@@ -24,8 +24,15 @@ Frontend-only premium beauty salon / beauty studio website with hardcoded conten
 - AI_RULES.md
 
 ## Current Build State
-Phase R2D completed.
-The full site has received a responsive audit and hardening pass across shared components and major pages, improving stability, spacing, image behavior, and mobile-to-desktop presentation consistency without reopening scope.
+Client Adaptation Phase 1 completed.
+The shared brand layer now supports Grožio studija Lauryta with a lightweight LT/EN frontend localization foundation, shared business data, and updated global shell surfaces without reopening the full homepage copy scope.
+
+## Completed In Client Adaptation Phase 1
+- Replaced the shared studio identity from Maison de Lueur to Grožio studija Lauryta across the global shell, shared business data, SEO helpers, and generated social share image.
+- Introduced a lightweight hardcoded LT/EN language system with Lithuanian as the default language and a clean shared data structure for navigation, CTA labels, footer labels, business details, and SEO defaults.
+- Added a refined LT / EN toggle to the header in both desktop and mobile navigation while keeping the header balanced and avoiding overcrowding with longer Lithuanian labels.
+- Rewired the footer, shared CTA defaults, and shared contact/business surfaces to the new bilingual business data foundation so Phase 2 can extend localization without duplicating content across components.
+- Revalidated the frontend after the rebrand foundation pass with lint and production build checks.
 
 ## Completed In Phase R2D
 - Audited the homepage, archive pages, detail pages, pricing/FAQ surfaces, contact flow, gallery, navbar, footer, and shared cards for mobile, tablet, small-laptop, and desktop layout issues.
@@ -159,7 +166,7 @@ The full site has received a responsive audit and hardening pass across shared c
 - Contact / Booking (Done)
 
 ## Immediate Next Goal
-Phase R3: perform final delivery hardening across the finished frontend, focusing on real-device QA, accessibility/performance calibration, and any last low-risk presentation fixes now that the responsive baseline is hardened site-wide.
+Client Adaptation Phase 2: convert the homepage and other high-visibility page copy from demo-style Maison de Lueur content toward believable Grožio studija Lauryta client-facing Lithuanian-first messaging using the new bilingual shared foundation.
 
 ## Open Creative Direction
 Use soft luxury, not dark glam, not fashion-editorial-first, not medical beauty-tech.

@@ -5,10 +5,11 @@ import { CtaBlock } from "@/components/sections/cta-block";
 import { Container } from "@/components/ui/container";
 import { MediaFrame } from "@/components/ui/media-frame";
 import { PageIntro } from "@/components/ui/page-intro";
+import { pageTitle, siteName } from "@/lib/seo";
 
 export const metadata = {
-  title: "Journal | Maison de Lueur",
-  description: "Read editorial notes, treatment guidance, and slow beauty insight from Maison de Lueur.",
+  title: pageTitle("Journal"),
+  description: `Read editorial notes, treatment guidance, and slow beauty insight from ${siteName}.`,
 };
 
 export default function JournalPage() {

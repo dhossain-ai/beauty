@@ -4,10 +4,11 @@ import { CtaBlock } from "@/components/sections/cta-block";
 import { Container } from "@/components/ui/container";
 import { PageIntro } from "@/components/ui/page-intro";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { pageTitle, siteName } from "@/lib/seo";
 
 export const metadata = {
-  title: "Pricing & Memberships | Maison de Lueur",
-  description: "Explore Maison de Lueur pricing, treatment investment, and memberships for ongoing soft luxury care.",
+  title: pageTitle("Pricing & Memberships"),
+  description: `Explore ${siteName} pricing, treatment investment, and memberships for ongoing soft luxury care.`,
 };
 
 export default function PricingPage() {
