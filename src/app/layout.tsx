@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { SiteLanguageProvider } from "@/components/providers/site-language-provider";
 import { SiteShell } from "@/components/layout/site-shell";
 import { absoluteUrl, siteDescription, siteName, siteTitle, siteUrl } from "@/lib/seo";
 import "./globals.css";
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
         url: absoluteUrl("/opengraph-image"),
         width: 1200,
         height: 630,
-        alt: "Maison de Lueur soft luxury beauty studio",
+        alt: `${siteName} social share image`,
       },
     ],
   },
@@ -66,12 +67,14 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="lt"
       data-scroll-behavior="smooth"
       className={`${headingFont.variable} ${bodyFont.variable} scroll-smooth`}
     >
       <body className="min-h-dvh bg-shell font-sans text-ink antialiased">
-        <SiteShell>{children}</SiteShell>
+        <SiteLanguageProvider>
+          <SiteShell>{children}</SiteShell>
+        </SiteLanguageProvider>
       </body>
     </html>
   );

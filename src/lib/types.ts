@@ -2,6 +2,8 @@ export type ImageTone = "champagne" | "blush" | "taupe" | "mocha" | "pearl";
 
 export type MediaAspect = "hero" | "portrait" | "landscape" | "square";
 
+export type Locale = "lt" | "en";
+
 export interface MediaImage {
   src: string;
   alt: string;
