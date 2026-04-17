@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navigation, studioInfo } from "@/data/site";
+import { useSiteLanguage } from "@/components/providers/site-language-provider";
+import { LanguageToggle } from "@/components/layout/language-toggle";
 import { cn } from "@/lib/cn";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -11,32 +12,33 @@ import { Container } from "@/components/ui/container";
 export function SiteHeader() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { navigation, siteContent, studioInfo } = useSiteLanguage();
 
   return (
     <header className="sticky top-0 z-50 pt-2.5 sm:pt-4">
       <Container>
-        <div className="surface-panel rounded-[1.75rem] px-3.5 py-3 shadow-[0_22px_50px_rgba(86,64,54,0.11)] sm:rounded-full sm:px-5">
+        <div className="surface-panel rounded-[1.75rem] px-3.5 py-3 shadow-[0_22px_50px_rgba(86,64,54,0.11)] sm:px-5 min-[1450px]:rounded-full">
           <div className="flex items-center justify-between gap-3 sm:gap-4">
             <Link
               href="/"
-              className="min-w-0 max-w-[11.5rem] sm:max-w-none"
+              className="min-w-0 max-w-[10rem] sm:max-w-none"
               onClick={() => setIsOpen(false)}
             >
-              <span className="block truncate font-serif text-[1.9rem] leading-none text-ink-strong sm:text-3xl">
-                {studioInfo.shortName}
+              <span className="block text-[0.58rem] font-semibold uppercase tracking-[0.26em] text-muted sm:text-[0.62rem]">
+                {siteContent.header.brandPrefix}
               </span>
-              <span className="mt-1 block max-w-[11.5rem] text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-muted sm:max-w-none sm:text-[0.65rem] sm:tracking-[0.28em]">
-                Soft luxury beauty studio
+              <span className="mt-1 block truncate font-serif text-[1.9rem] leading-none text-ink-strong sm:text-3xl">
+                {studioInfo.shortName}
               </span>
             </Link>
 
-            <nav className="hidden items-center gap-5 xl:gap-7 lg:flex">
+            <nav className="hidden items-center gap-1 min-[1450px]:flex">
               {navigation.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "rounded-full px-3 py-2 text-sm font-medium transition-[color,background-color] duration-300",
+                    "rounded-full px-3 py-2 text-sm font-medium transition-[color,background-color] duration-300 xl:px-3.5",
                     pathname === item.href
                       ? "bg-white/78 text-ink shadow-[0_10px_26px_rgba(69,54,48,0.08)]"
                       : "text-muted hover:bg-white/50 hover:text-ink",
@@ -47,17 +49,18 @@ export function SiteHeader() {
               ))}
             </nav>
 
-            <div className="hidden lg:flex">
+            <div className="hidden items-center gap-2 min-[1450px]:flex">
+              <LanguageToggle />
               <Button href="/contact" variant="primary">
-                Book a calm visit
+                {siteContent.cta.book}
               </Button>
             </div>
 
             <button
               type="button"
               aria-expanded={isOpen}
-              aria-label="Toggle navigation"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border-strong/70 bg-white/70 text-ink shadow-[0_10px_24px_rgba(69,54,48,0.08)] transition-colors duration-300 hover:bg-white lg:hidden"
+              aria-label={siteContent.header.navigationToggleLabel}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border-strong/70 bg-white/70 text-ink shadow-[0_10px_24px_rgba(69,54,48,0.08)] transition-colors duration-300 hover:bg-white min-[1450px]:hidden"
               onClick={() => setIsOpen((current) => !current)}
             >
               <span className="flex flex-col gap-1.5">
@@ -85,11 +88,17 @@ export function SiteHeader() {
 
           <div
             className={cn(
-              "overflow-hidden transition-[max-height,opacity,margin] duration-300 lg:hidden",
+              "overflow-hidden transition-[max-height,opacity,margin] duration-300 min-[1450px]:hidden",
               isOpen ? "mt-3 max-h-[32rem] opacity-100 sm:mt-4" : "max-h-0 opacity-0",
             )}
           >
             <nav className="flex flex-col gap-2 rounded-[1.5rem] border border-border/70 bg-white/75 p-3 shadow-[0_22px_42px_rgba(69,54,48,0.08)]">
+              <div className="flex items-center justify-between gap-3 rounded-[1rem] border border-border/70 bg-white/78 px-4 py-3">
+                <span className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-muted">
+                  {siteContent.header.mobileNavigationLabel}
+                </span>
+                <LanguageToggle />
+              </div>
               {navigation.map((item) => (
                 <Link
                   key={item.href}
@@ -106,7 +115,7 @@ export function SiteHeader() {
                 </Link>
               ))}
               <Button href="/contact" className="mt-2" fullWidth>
-                Book a calm visit
+                {siteContent.cta.book}
               </Button>
             </nav>
           </div>
