@@ -127,3 +127,6 @@ Phase R2D: Multi-column and sticky detail-page layouts should relax earlier on t
 
 ### D39
 Client Adaptation Phase 1: The LT/EN foundation should use a lightweight hardcoded locale layer plus a small client-side language provider in the shared shell, avoiding a larger i18n dependency until more of the page content actually needs bilingual switching.
+
+### D40
+Client Adaptation Phase 2: Homepage conversion should use a dedicated LT/EN homepage content layer keyed to the existing service, specialist, result, and journal slugs so the homepage can be localized and rewritten cleanly without prematurely forcing a full inner-page data rewrite.

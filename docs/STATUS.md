@@ -24,8 +24,16 @@ Frontend-only premium beauty salon / beauty studio website with hardcoded conten
 - AI_RULES.md
 
 ## Current Build State
-Client Adaptation Phase 1 completed.
-The shared brand layer now supports Grožio studija Lauryta with a lightweight LT/EN frontend localization foundation, shared business data, and updated global shell surfaces without reopening the full homepage copy scope.
+Client Adaptation Phase 2 completed.
+The homepage now reads as a believable Grožio studija Lauryta client-facing website with Lithuanian-first messaging, English parity for homepage sections, and the existing layout preserved.
+
+## Completed In Client Adaptation Phase 2
+- Rewrote the homepage hero, trust strip, services, studio approach, specialists, results, testimonials, journal preview, and final CTA with Lithuanian-first real-business copy for Grožio studija Lauryta.
+- Added matching restrained English homepage copy through a centralized homepage LT/EN content layer keyed to existing service, specialist, journal, and result content slugs.
+- Reframed the homepage away from design-demo language toward practical premium salon messaging focused on consultation, professional care, natural-looking results, and clear booking intent.
+- Reduced text pressure in a few homepage surfaces so Lithuanian labels and longer copy stay readable inside the existing image-led layout without redesigning the page.
+- Updated homepage-adjacent footer wording to sound more practical and business-realistic while keeping the shared global structure introduced in Phase 1.
+- Revalidated the frontend after the homepage conversion pass with lint and production build checks.
 
 ## Completed In Client Adaptation Phase 1
 - Replaced the shared studio identity from Maison de Lueur to Grožio studija Lauryta across the global shell, shared business data, SEO helpers, and generated social share image.
@@ -166,7 +174,7 @@ The shared brand layer now supports Grožio studija Lauryta with a lightweight L
 - Contact / Booking (Done)
 
 ## Immediate Next Goal
-Client Adaptation Phase 2: convert the homepage and other high-visibility page copy from demo-style Maison de Lueur content toward believable Grožio studija Lauryta client-facing Lithuanian-first messaging using the new bilingual shared foundation.
+Client Adaptation Phase 3: extend the Grožio studija Lauryta LT/EN conversion into the highest-priority inner pages, starting with services, specialists, contact, pricing, and other remaining shared client-facing content that still reads like portfolio-era demo copy.
 
 ## Open Creative Direction
 Use soft luxury, not dark glam, not fashion-editorial-first, not medical beauty-tech.
