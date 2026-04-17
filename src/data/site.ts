@@ -84,7 +84,7 @@ const siteContent: Record<Locale, SiteContent> = {
     cta: {
       book: "Registruotis",
       footerBook: "Rezervuoti laiką",
-      footerJournal: "Skaityti daugiau",
+      footerJournal: "Grožio patarimai",
       exploreServices: "Peržiūrėti paslaugas",
       startConsultation: "Pradėti konsultaciją",
     },
@@ -92,7 +92,7 @@ const siteContent: Record<Locale, SiteContent> = {
       contactHeading: "Kontaktai",
       copyright: "© 2026 Grožio studija Lauryta. Rami grožio priežiūra Vilniuje.",
       description:
-        "Švelnios prabangos studija Vilniuje, kur veido, antakių ir blakstienų procedūros planuojamos ramiai, aiškiai ir pagal jūsų poreikius.",
+        "Rami grožio studija Vilniuje, kur veido, antakių ir blakstienų procedūros parenkamos aiškiai, profesionaliai ir pagal jūsų poreikį.",
       hoursHeading: "Darbo laikas",
       navigationHeading: "Naršyti",
     },
@@ -137,7 +137,7 @@ const siteContent: Record<Locale, SiteContent> = {
     cta: {
       book: "Book",
       footerBook: "Book a visit",
-      footerJournal: "Read more",
+      footerJournal: "Beauty advice",
       exploreServices: "Explore services",
       startConsultation: "Start a consultation",
     },
@@ -145,7 +145,7 @@ const siteContent: Record<Locale, SiteContent> = {
       contactHeading: "Contact",
       copyright: "© 2026 Grožio studija Lauryta. Calm beauty care in Vilnius.",
       description:
-        "A soft luxury beauty studio in Vilnius for calm facial, brow, and lash appointments shaped around real client needs.",
+        "A calm beauty studio in Vilnius for facial, brow, and lash care chosen around real client needs and everyday wearability.",
       hoursHeading: "Hours",
       navigationHeading: "Navigate",
     },

@@ -24,13 +24,15 @@ const specialistMap = new Map(
   specialists.map((specialist) => [specialist.slug, specialist]),
 );
 const galleryItemMap = new Map(galleryItems.map((item) => [item.slug, item]));
-const featuredJournalPost = blogPosts[0]!;
-const secondaryJournalPosts = blogPosts.slice(1, 3);
+const blogPostMap = new Map(blogPosts.map((post) => [post.slug, post]));
 
 export function Homepage() {
   const { locale } = useSiteLanguage();
   const homepageContent = getHomepageContent(locale);
   const resultPreviewItem = galleryItemMap.get(homepageContent.results.preview.slug);
+  const featuredJournalPost = blogPostMap.get(
+    homepageContent.journal.featuredPost.slug,
+  );
 
   return (
     <>
@@ -430,101 +432,111 @@ export function Homepage() {
       <section id="journal" className="section-space-tight">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1.06fr_0.94fr] lg:items-start">
-            <Link
-              href={`/journal/${featuredJournalPost.slug}`}
-              className="group block"
-            >
-              <article className="surface-card overflow-hidden rounded-[2.5rem] p-4 transition-[transform,box-shadow,border-color] duration-500 ease-out group-hover:-translate-y-1 group-hover:border-border-strong/70 group-hover:shadow-[var(--shadow-card-hover)] sm:p-5">
-                <MediaFrame
-                  aspect="landscape"
-                  title={featuredJournalPost.title}
-                  subtitle={featuredJournalPost.excerpt}
-                  label={featuredJournalPost.category}
-                  tone={featuredJournalPost.imageTone}
-                  image={featuredJournalPost.image}
-                  className="min-h-[320px] rounded-[2rem]"
-                  overlayClassName="max-w-[15rem] bg-white/56 p-3.5"
-                />
-                <div className="space-y-4 px-2 pb-2 pt-5">
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-muted">
-                    <span>{featuredJournalPost.publishedAt}</span>
-                    <span className="h-1 w-1 rounded-full bg-border-strong" />
-                    <span>{featuredJournalPost.readTime}</span>
+            {featuredJournalPost ? (
+              <Link
+                href={`/journal/${featuredJournalPost.slug}`}
+                className="group block"
+              >
+                <article className="surface-card overflow-hidden rounded-[2.5rem] p-4 transition-[transform,box-shadow,border-color] duration-500 ease-out group-hover:-translate-y-1 group-hover:border-border-strong/70 group-hover:shadow-[var(--shadow-card-hover)] sm:p-5">
+                  <MediaFrame
+                    aspect="landscape"
+                    title={homepageContent.journal.featuredPost.title}
+                    subtitle={homepageContent.journal.featuredPost.excerpt}
+                    label={homepageContent.journal.featuredPost.category}
+                    tone={featuredJournalPost.imageTone}
+                    image={featuredJournalPost.image}
+                    className="min-h-[320px] rounded-[2rem]"
+                    overlayClassName="max-w-[15rem] bg-white/56 p-3.5"
+                  />
+                  <div className="space-y-4 px-2 pb-2 pt-5">
+                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-muted">
+                      <span>{homepageContent.journal.featuredPost.publishedAt}</span>
+                      <span className="h-1 w-1 rounded-full bg-border-strong" />
+                      <span>{homepageContent.journal.featuredPost.readTime}</span>
+                    </div>
+                    <p className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-white/76 px-4 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_10px_24px_rgba(69,54,48,0.08)] transition-[transform,box-shadow] duration-300 group-hover:translate-x-1 group-hover:shadow-[0_14px_30px_rgba(69,54,48,0.12)]">
+                      {homepageContent.journal.featuredCtaLabel}
+                      <ArrowRight className="h-4 w-4" />
+                    </p>
                   </div>
-                  <p className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-white/76 px-4 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-ink shadow-[0_10px_24px_rgba(69,54,48,0.08)] transition-[transform,box-shadow] duration-300 group-hover:translate-x-1 group-hover:shadow-[0_14px_30px_rgba(69,54,48,0.12)]">
-                    Read featured article
-                    <ArrowRight className="h-4 w-4" />
-                  </p>
-                </div>
-              </article>
-            </Link>
+                </article>
+              </Link>
+            ) : null}
 
             <div className="space-y-5">
               <div className="max-w-xl space-y-4">
-                <Badge variant="outline">Beauty journal</Badge>
+                <Badge variant="outline">{homepageContent.journal.badge}</Badge>
                 <h2 className="section-title text-balance font-serif text-ink-strong">
-                  A lighter editorial preview with less explanation.
+                  {homepageContent.journal.title}
                 </h2>
                 <p className="text-sm leading-7 text-muted sm:text-base sm:leading-8">
-                  Practical beauty guidance should feel calm and easy to scan.
+                  {homepageContent.journal.description}
                 </p>
               </div>
 
               <div className="overflow-hidden rounded-[2rem] border border-border/70 bg-white/58">
-                {secondaryJournalPosts.map((post, index) => (
-                  <Link
-                    key={post.slug}
-                    href={`/journal/${post.slug}`}
-                    className="group block px-4 py-4 transition-colors duration-300 hover:bg-white/84 sm:px-5"
-                  >
-                    <div
-                      className={
-                        index !== secondaryJournalPosts.length - 1
-                          ? "border-b border-border/70 pb-4"
-                          : ""
-                      }
-                    >
-                      <div className="grid grid-cols-[4.5rem_1fr] items-center gap-3 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
-                        <div className="relative aspect-[4/5] overflow-hidden rounded-[1.4rem] border border-white/70 bg-shell-soft">
-                          {post.image ? (
-                            <Image
-                              src={post.image.src}
-                              alt={post.image.alt}
-                              fill
-                              sizes="(min-width: 640px) 6.5rem, 5rem"
-                              className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                              style={{
-                                objectPosition:
-                                  post.image.position ?? "center",
-                              }}
-                            />
-                          ) : null}
-                          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(35,25,21,0.14)_100%)]" />
-                        </div>
+                {homepageContent.journal.secondaryPosts.map((post, index) => {
+                  const sourcePost = blogPostMap.get(post.slug);
 
-                        <div>
-                          <div className="flex flex-wrap items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted">
-                            <span>{post.category}</span>
-                            <span className="h-1 w-1 rounded-full bg-border-strong" />
-                            <span>{post.readTime}</span>
+                  if (!sourcePost) {
+                    return null;
+                  }
+
+                  return (
+                    <Link
+                      key={post.slug}
+                      href={`/journal/${post.slug}`}
+                      className="group block px-4 py-4 transition-colors duration-300 hover:bg-white/84 sm:px-5"
+                    >
+                      <div
+                        className={
+                          index !== homepageContent.journal.secondaryPosts.length - 1
+                            ? "border-b border-border/70 pb-4"
+                            : ""
+                        }
+                      >
+                        <div className="grid grid-cols-[4.5rem_1fr] items-center gap-3 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
+                          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.4rem] border border-white/70 bg-shell-soft">
+                            {sourcePost.image ? (
+                              <Image
+                                src={sourcePost.image.src}
+                                alt={sourcePost.image.alt}
+                                fill
+                                sizes="(min-width: 640px) 6.5rem, 5rem"
+                                className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                                style={{
+                                  objectPosition:
+                                    sourcePost.image.position ?? "center",
+                                }}
+                              />
+                            ) : null}
+                            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(35,25,21,0.14)_100%)]" />
                           </div>
-                          <h3 className="card-title mt-3 font-serif text-ink-strong transition-colors duration-300 group-hover:text-ink">
-                            {post.title}
-                          </h3>
-                          <p className="mt-3 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-ink/76 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ink">
-                            Read article
-                            <ArrowRight className="h-3.5 w-3.5" />
-                          </p>
+
+                          <div>
+                            <div className="flex flex-wrap items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-muted">
+                              <span>{post.category}</span>
+                              <span className="h-1 w-1 rounded-full bg-border-strong" />
+                              <span>{post.readTime}</span>
+                            </div>
+                            <h3 className="card-title mt-3 font-serif text-ink-strong transition-colors duration-300 group-hover:text-ink">
+                              {post.title}
+                            </h3>
+                            <p className="mt-3 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-ink/76 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-ink">
+                              {locale === "lt" ? "Skaityti" : "Read article"}
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  );
+                })}
               </div>
 
               <div>
                 <Button href="/journal" variant="secondary">
-                  Read the journal
+                  {homepageContent.journal.buttonLabel}
                 </Button>
               </div>
             </div>
@@ -534,13 +546,13 @@ export function Homepage() {
 
       <CtaBlock
         id="contact"
-        eyebrow="Ready to book"
-        title="Choose a treatment path that feels calm from the first click."
-        description="Start with a consultation if you want guidance, browse the treatment menu if you already know the result you want, or use the journal to understand the studio philosophy first."
+        eyebrow={homepageContent.finalCta.eyebrow}
+        title={homepageContent.finalCta.title}
+        description={homepageContent.finalCta.description}
         primaryHref="/contact"
-        primaryLabel="Book a consultation"
+        primaryLabel={homepageContent.finalCta.primaryLabel}
         secondaryHref="/services"
-        secondaryLabel="Browse treatments"
+        secondaryLabel={homepageContent.finalCta.secondaryLabel}
       />
     </>
   );
