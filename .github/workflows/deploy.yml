@@ -36,11 +36,16 @@ jobs:
       - name: Upload static export to S3
         run: aws s3 sync ./out s3://${{ secrets.S3_BUCKET }} --delete
 
-      - name: Get CloudFront distribution ID
+      - name: Get CloudFront distribution ID by origin
         run: |
           DISTRIBUTION_ID=$(aws cloudfront list-distributions \
-            --query "DistributionList.Items[0].Id" \
+            --query "DistributionList.Items[?Origins.Items[?DomainName=='lauryta.s3-website.eu-central-1.amazonaws.com']].Id | [0]" \
             --output text)
+
+          if [ "$DISTRIBUTION_ID" = "None" ] || [ -z "$DISTRIBUTION_ID" ]; then
+            echo "No CloudFront distribution found for origin: lauryta.s3-website.eu-central-1.amazonaws.com"
+            exit 1
+          fi
 
           echo "DISTRIBUTION_ID=$DISTRIBUTION_ID" >> $GITHUB_ENV
           echo "Found CloudFront distribution: $DISTRIBUTION_ID"
