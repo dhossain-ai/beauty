@@ -4,6 +4,8 @@ import { services } from "@/data/services";
 import { specialists } from "@/data/specialists";
 import { absoluteUrl } from "@/lib/seo";
 
+export const dynamic = "force-static";
+
 const lastModified = new Date("2026-04-03");
 
 export default function sitemap(): MetadataRoute.Sitemap {
