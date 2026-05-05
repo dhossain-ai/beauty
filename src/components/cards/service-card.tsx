@@ -33,9 +33,6 @@ export function ServiceCard({ service }: ServiceCardProps) {
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-stone-500">
             {service.category}
           </p>
-          <h3 className="mt-2 font-serif text-[1.45rem] leading-[0.95] text-stone-900">
-            {service.title}
-          </h3>
           {service.highlight && (
             <p className="mt-1.5 text-sm leading-5 text-stone-600">
               {service.highlight}
