@@ -15,7 +15,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
   return (
     <article className="surface-card group flex h-full flex-col rounded-[2rem] p-4 transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-border-strong/70 hover:shadow-[var(--shadow-card-hover)] sm:p-5">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[1.6rem]">
+      <div className="relative aspect-[1.18/1] overflow-hidden rounded-[1.6rem]">
         {service.image ? (
           <Image
             src={service.image.src}
@@ -29,12 +29,12 @@ export function ServiceCard({ service }: ServiceCardProps) {
           <div className="absolute inset-0 bg-stone-100 transition-transform duration-700 ease-out group-hover:scale-[1.035]" />
         )}
         
-        <div className="absolute inset-x-3 bottom-3 rounded-[1.25rem] bg-white/75 p-3.5 shadow-sm backdrop-blur-md">
+        <div className="absolute left-4 bottom-4 max-w-[70%] rounded-[1.25rem] bg-[#f4e8e2]/80 p-3.5 shadow-sm backdrop-blur-md sm:left-5 sm:bottom-5 sm:max-w-[68%] sm:p-4">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-stone-500">
             {service.category}
           </p>
           {service.highlight && (
-            <p className="mt-1.5 text-sm leading-5 text-stone-600">
+            <p className="mt-1.5 text-sm leading-5 text-stone-600 sm:mt-2">
               {service.highlight}
             </p>
           )}
