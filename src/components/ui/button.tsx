@@ -18,7 +18,7 @@ const baseStyles =
 
 const variants = {
   primary:
-    "border border-[#4a3933]/55 bg-[linear-gradient(180deg,#40302b_0%,#261d1a_100%)] text-shell-soft shadow-[0_18px_42px_rgba(69,54,48,0.2)] hover:-translate-y-0.5 hover:border-[#5d4b43]/58 hover:bg-[linear-gradient(180deg,#4b3933_0%,#2d221f_100%)] hover:shadow-[0_22px_48px_rgba(69,54,48,0.24)]",
+    "border border-[#4a3933]/55 bg-[#35241f] text-[#fffaf5] shadow-[0_18px_42px_rgba(69,54,48,0.2)] hover:-translate-y-0.5 hover:border-[#5d4b43]/58 hover:bg-[#2b1d19] hover:text-[#fffaf5] hover:shadow-[0_22px_48px_rgba(69,54,48,0.24)]",
   secondary:
     "border border-border-strong/90 bg-white/90 text-ink-strong shadow-[0_14px_32px_rgba(69,54,48,0.1)] hover:-translate-y-0.5 hover:border-mocha/45 hover:bg-white hover:shadow-[0_18px_40px_rgba(69,54,48,0.14)]",
   ghost:
