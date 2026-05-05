@@ -1,10 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useSiteLanguage } from "@/components/providers/site-language-provider";
 import type { Service } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MediaFrame } from "@/components/ui/media-frame";
 
 interface ServiceCardProps {
   service: Service;
@@ -15,15 +15,34 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
   return (
     <article className="surface-card group flex h-full flex-col rounded-[2rem] p-4 transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-border-strong/70 hover:shadow-[var(--shadow-card-hover)] sm:p-5">
-      <MediaFrame
-        aspect="landscape"
-        title={service.title}
-        subtitle={service.highlight}
-        label={service.category}
-        tone={service.imageTone}
-        image={service.image}
-        className="rounded-[1.6rem]"
-      />
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[1.6rem]">
+        {service.image ? (
+          <Image
+            src={service.image.src}
+            alt={service.image.alt || service.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+            style={{ objectPosition: service.image.position ?? "center" }}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-stone-100 transition-transform duration-700 ease-out group-hover:scale-[1.035]" />
+        )}
+        
+        <div className="absolute inset-x-3 bottom-3 rounded-[1.25rem] bg-white/75 p-3.5 shadow-sm backdrop-blur-md">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-stone-500">
+            {service.category}
+          </p>
+          <h3 className="mt-2 font-serif text-[1.45rem] leading-[0.95] text-stone-900">
+            {service.title}
+          </h3>
+          {service.highlight && (
+            <p className="mt-1.5 text-sm leading-5 text-stone-600">
+              {service.highlight}
+            </p>
+          )}
+        </div>
+      </div>
       <div className="flex flex-1 flex-col gap-5 px-2 pb-2 pt-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Badge variant="outline">{service.category}</Badge>
